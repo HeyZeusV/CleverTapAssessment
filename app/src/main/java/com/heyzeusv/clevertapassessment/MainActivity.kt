@@ -53,7 +53,7 @@ fun MainScreen(mainVM: MainViewModel = koinViewModel()) {
 			horizontalAlignment = Alignment.CenterHorizontally,
 		) {
 			Text(
-				text = "Current AccountId: $cleverTapId",
+				text = "Current AccountId:\n$cleverTapId",
 				textAlign = TextAlign.Center,
 			)
 			Row(
@@ -61,15 +61,36 @@ fun MainScreen(mainVM: MainViewModel = koinViewModel()) {
 				horizontalArrangement = Arrangement.spacedBy(8.dp),
 				verticalAlignment = Alignment.CenterVertically,
 			) {
-				Button(onClick = { mainVM.logIntoAccountWithEmail("test_user_one@gmail.com") }) {
+				Button(
+					onClick = { mainVM.logIntoAccountWithIdentity("TestUserOne") },
+					enabled = cleverTapId == "__49260b0655ff41fea8673cd49857805d",
+				) {
 					Text("Log into Test User One")
 				}
-				Button(onClick = { mainVM.logIntoAccountWithEmail("test_user_two@gmail.com") }) {
+				Button(
+					onClick = { mainVM.logIntoAccountWithIdentity("TestUserTwo") },
+					enabled = cleverTapId == "__7b5d4f0e434546f59ff23324b37bd730",
+				) {
 					Text("Log into Test User Two")
 				}
 			}
-			Button(onClick = { mainVM.updateMyStuff() }) {
+			Button(
+				onClick = { mainVM.updateMyStuff() },
+				enabled = cleverTapId != "Loading",
+			) {
 				Text("Update dummy stuff")
+			}
+			Button(
+				onClick = {
+					mainVM.productViewedEvent(
+						productId = 1,
+						productName = "CleverTap",
+						emailId = "jesus",
+					)
+				},
+				enabled = cleverTapId != "Loading"
+			) {
+				Text("Product Viewed Event")
 			}
 		}
 	}
