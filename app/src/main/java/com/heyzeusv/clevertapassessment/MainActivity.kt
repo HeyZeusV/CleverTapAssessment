@@ -10,42 +10,28 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.clevertap.android.sdk.CleverTapAPI
 import com.heyzeusv.clevertapassessment.ui.theme.CleverTapAssessmentTheme
+import org.koin.androidx.compose.koinViewModel
 
 class MainActivity : ComponentActivity() {
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
 
-		val cleverTapDefaultInstance = CleverTapAPI.getDefaultInstance(applicationContext)
-
 		enableEdgeToEdge()
 		setContent {
 			CleverTapAssessmentTheme {
-				Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-					Greeting(
-						name = "Android",
-						modifier = Modifier.padding(innerPadding)
-					)
-				}
+				MainScreen()
 			}
 		}
 	}
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-	Text(
-		text = "Hello $name!",
-		modifier = modifier
-	)
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-	CleverTapAssessmentTheme {
-		Greeting("Android")
+fun MainScreen(mainVM: MainViewModel = koinViewModel()) {
+	Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+		Text(
+			text = "AccountId: ${mainVM.getCleverTapAccountId()}",
+			modifier = Modifier.padding(innerPadding)
+		)
 	}
 }
