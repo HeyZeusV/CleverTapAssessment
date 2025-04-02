@@ -23,6 +23,7 @@ class MainViewModel(private val cleverTapAPI: CleverTapAPI) : ViewModel() {
 		val otherStuff = arrayOf("Random", "Stuff")
 		profileUpdate["MyStuff"] = otherStuff //String Array
 		cleverTapAPI.onUserLogin(profileUpdate)
+		cleverTapAPI.pushEvent("Create/Reset Dummy Account")
 	}
 
 	fun updateDummyAccountMyStuff() {
@@ -35,6 +36,7 @@ class MainViewModel(private val cleverTapAPI: CleverTapAPI) : ViewModel() {
 		Log.i("CleverTapAssessment", "Updated MyStuff: $stuff")
 		profileUpdate["MyStuff"] = stuff
 		cleverTapAPI.pushProfile(profileUpdate)
+		cleverTapAPI.pushEvent("Update MyStuff")
 	}
 
 	private fun randomString(): String {
