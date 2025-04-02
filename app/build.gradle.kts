@@ -1,3 +1,5 @@
+import java.util.Properties
+
 plugins {
 	alias(libs.plugins.android.application)
 	alias(libs.plugins.kotlin.android)
@@ -16,6 +18,16 @@ android {
 		versionName = "1.0"
 
 		testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+		val keysFile = project.rootProject.file("keys.properties")
+		val properties = Properties()
+		properties.load(keysFile.inputStream())
+
+		val clevertapAccountId = properties.getProperty("CLEVERTAP_ACCOUNT_ID") ?: ""
+		val clevertapToken = properties.getProperty("CLEVERTAP_TOKEN") ?: ""
+
+		manifestPlaceholders["CLEVERTAP_ACCOUNT_ID"] = clevertapAccountId
+		manifestPlaceholders["CLEVERTAP_TOKEN"] = clevertapToken
 	}
 
 	buildTypes {
