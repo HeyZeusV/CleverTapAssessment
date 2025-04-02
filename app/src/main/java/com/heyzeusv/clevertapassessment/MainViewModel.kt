@@ -33,16 +33,18 @@ class MainViewModel(private val cleverTapAPI: CleverTapAPI) : ViewModel() {
 
 	fun productViewedEvent(productId: Int, productName: String, emailId: String) {
 		val df = DecimalFormat("#.##")
+		val productPrice = df.format(Random.nextDouble(1.00, 100.00))
 		val productViewedAction = mapOf(
 			"Product Id" to productId,
 			"Product Name" to productName,
-			"Product Price" to df.format(Random.nextDouble(1.00, 100.00)),
+			"Product Price" to productPrice,
 		)
 
 		cleverTapAPI.pushEvent("Product Viewed", productViewedAction)
 
 		val profileUpdate = mapOf("Email" to "clevertap+$emailId@gmail.com")
 		cleverTapAPI.pushProfile(profileUpdate)
+		Log.i("CleverTapAssessment", "Product Viewed: Id = $productId, Name = $productName, Price = $productPrice")
 	}
 
 	fun updateMyStuff() {

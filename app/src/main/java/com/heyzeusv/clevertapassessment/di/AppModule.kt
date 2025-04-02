@@ -10,12 +10,17 @@ import org.koin.core.module.dsl.viewModelOf
 import org.koin.dsl.module
 
 val appModule = module {
-	single { CleverTapAPI.getDefaultInstance(androidContext()).apply {
-		if (BuildConfig.DEBUG) {
-			setDebugLevel(LogLevel.VERBOSE)
-		} else {
-			setDebugLevel(LogLevel.OFF)
+	single {
+		CleverTapAPI.getDefaultInstance(androidContext())?.apply {
+			if (BuildConfig.DEBUG) {
+				setDebugLevel(LogLevel.VERBOSE)
+			} else {
+				setDebugLevel(LogLevel.OFF)
+			}
+			if (!isPushPermissionGranted) {
+				promptForPushPermission(true)
+			}
 		}
-	} }
+	}
 	viewModelOf(::MainViewModel)
 }
