@@ -16,6 +16,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.heyzeusv.clevertapassessment.ui.theme.CleverTapAssessmentTheme
+import org.koin.androidx.compose.KoinAndroidContext
 import org.koin.androidx.compose.koinViewModel
 
 class MainActivity : ComponentActivity() {
@@ -25,7 +26,9 @@ class MainActivity : ComponentActivity() {
 		enableEdgeToEdge()
 		setContent {
 			CleverTapAssessmentTheme {
-				MainScreen()
+				KoinAndroidContext {
+					MainScreen()
+				}
 			}
 		}
 	}
