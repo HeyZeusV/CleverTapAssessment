@@ -4,6 +4,7 @@ plugins {
 	alias(libs.plugins.android.application)
 	alias(libs.plugins.kotlin.android)
 	alias(libs.plugins.kotlin.compose)
+	alias(libs.plugins.google.services)
 }
 
 android {
@@ -38,6 +39,9 @@ android {
 				"proguard-rules.pro"
 			)
 		}
+		debug {
+			applicationIdSuffix = ".dev"
+		}
 	}
 	compileOptions {
 		sourceCompatibility = JavaVersion.VERSION_11
@@ -61,6 +65,13 @@ dependencies {
 	implementation(libs.androidx.ui.graphics)
 	implementation(libs.androidx.ui.tooling.preview)
 	implementation(libs.androidx.material3)
+
+	// CleverTap
+	implementation(libs.clevertap.android.sdk)
+
+	// Firebase
+	implementation(libs.firebase.messaging)
+
 	testImplementation(libs.junit)
 	androidTestImplementation(libs.androidx.junit)
 	androidTestImplementation(libs.androidx.espresso.core)
