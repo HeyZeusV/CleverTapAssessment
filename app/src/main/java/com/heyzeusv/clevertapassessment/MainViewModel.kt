@@ -3,30 +3,25 @@ package com.heyzeusv.clevertapassessment
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import com.clevertap.android.sdk.CleverTapAPI
-import java.util.Date
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlin.random.Random
 
 class MainViewModel(private val cleverTapAPI: CleverTapAPI) : ViewModel() {
 
-	fun getCleverTapAccountId(): String = cleverTapAPI.accountId
+	private val _cleverTapId = MutableStateFlow(cleverTapAPI.cleverTapID)
+	val cleverTapId: StateFlow<String> get() = _cleverTapId.asStateFlow()
 
-	fun createDummyAccount() {
+	fun logIntoAccountWithEmail(email: String) {
 		val profileUpdate = HashMap<String, Any>()
-		profileUpdate["Name"] = "Test Dummy" // String
-		profileUpdate["Identity"] = 1234 // String or number
-		profileUpdate["Email"] = "test@gmail.com" // Email address of the user
-		profileUpdate["Phone"] = "+14155551234" // Phone (with the country code, starting with +)
-		profileUpdate["Gender"] = "M" // Can be either M or F
-		profileUpdate["DOB"] = Date() // Date of Birth. Set the Date object to the appropriate value first
+		profileUpdate["Email"] = email
 
-
-		val otherStuff = arrayOf("Random", "Stuff")
-		profileUpdate["MyStuff"] = otherStuff //String Array
 		cleverTapAPI.onUserLogin(profileUpdate)
-		cleverTapAPI.pushEvent("Create/Reset Dummy Account")
+		_cleverTapId.value = cleverTapAPI.cleverTapID
 	}
 
-	fun updateDummyAccountMyStuff() {
+	fun updateMyStuff() {
 		val profileUpdate = HashMap<String, Any>()
 
 		val stuff = mutableListOf<String>()
