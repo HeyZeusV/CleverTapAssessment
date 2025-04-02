@@ -72,6 +72,13 @@ dependencies {
 	// Firebase
 	implementation(libs.firebase.messaging)
 
+	// Koin
+	implementation(libs.koin.compose)
+
+	// ViewModel
+	implementation(libs.androidx.lifecycle.viewmodel.compose)
+	implementation(libs.androidx.lifecycle.viewmodel.ktx)
+
 	testImplementation(libs.junit)
 	androidTestImplementation(libs.androidx.junit)
 	androidTestImplementation(libs.androidx.espresso.core)
