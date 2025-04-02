@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CleverTapAssessment"
         tools:targetApi="31">
+        <meta-data
+            android:name="CLEVERTAP_ACCOUNT_ID"
+            android:value="${CLEVERTAP_ACCOUNT_ID}" />
+        <meta-data
+            android:name="CLEVERTAP_TOKEN"
+            android:value="${CLEVERTAP_TOKEN}" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
