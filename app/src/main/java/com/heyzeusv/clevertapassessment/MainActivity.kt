@@ -10,14 +10,21 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.heyzeusv.clevertapassessment.ui.theme.CleverTapAssessmentTheme
@@ -42,6 +49,10 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun MainScreen(mainVM: MainViewModel = koinViewModel()) {
 	val cleverTapId by mainVM.cleverTapId.collectAsState()
+
+	var productId by remember { mutableIntStateOf(1) }
+	var productName by remember { mutableStateOf("CleverTap") }
+	var emailId by remember { mutableStateOf("jesus") }
 
 	Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
 		Column(
@@ -80,14 +91,27 @@ fun MainScreen(mainVM: MainViewModel = koinViewModel()) {
 			) {
 				Text("Update dummy stuff")
 			}
+			OutlinedTextField(
+				value = "$productId",
+				onValueChange = { productId = it.toInt() },
+				modifier = Modifier.fillMaxWidth(),
+				label = { Text("Product Id") },
+				keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+			)
+			OutlinedTextField(
+				value = productName,
+				onValueChange = { productName = it },
+				modifier = Modifier.fillMaxWidth(),
+				label = { Text("Product Name") },
+			)
+			OutlinedTextField(
+				value = emailId,
+				onValueChange = { emailId = it },
+				modifier = Modifier.fillMaxWidth(),
+				label = { Text("Email Id") },
+			)
 			Button(
-				onClick = {
-					mainVM.productViewedEvent(
-						productId = 1,
-						productName = "CleverTap",
-						emailId = "jesus",
-					)
-				},
+				onClick = { mainVM.productViewedEvent(productId, productName, emailId) },
 				enabled = cleverTapId != "Loading"
 			) {
 				Text("Product Viewed Event")
