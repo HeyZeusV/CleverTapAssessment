@@ -1,6 +1,5 @@
 package com.heyzeusv.clevertapassessment
 
-import android.icu.text.DecimalFormat
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -10,6 +9,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import kotlin.math.roundToInt
 import kotlin.random.Random
 
 class MainViewModel(private val cleverTapAPI: CleverTapAPI) : ViewModel() {
@@ -33,8 +33,7 @@ class MainViewModel(private val cleverTapAPI: CleverTapAPI) : ViewModel() {
 
 	fun productViewedEvent(productId: String, productName: String, emailId: String) {
 		val checkedId = if (productId.isBlank()) 1 else productId.toInt()
-		val df = DecimalFormat("#.##")
-		val productPrice = df.format(Random.nextDouble(1.00, 100.00))
+		val productPrice = (Random.nextDouble(1.00, 100.00) * 100.0).roundToInt() / 100.0
 		val productViewedAction = mapOf(
 			"Product Id" to checkedId,
 			"Product Name" to productName,

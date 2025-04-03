@@ -1,5 +1,7 @@
 package com.heyzeusv.clevertapassessment
 
+import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -26,7 +28,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import com.clevertap.android.sdk.CleverTapAPI
 import com.heyzeusv.clevertapassessment.ui.theme.CleverTapAssessmentTheme
+import org.koin.android.ext.android.inject
 import org.koin.androidx.compose.KoinAndroidContext
 import org.koin.androidx.compose.koinViewModel
 
@@ -41,6 +45,17 @@ class MainActivity : ComponentActivity() {
 					MainScreen()
 				}
 			}
+		}
+	}
+
+	override fun onNewIntent(intent: Intent) {
+		super.onNewIntent(intent)
+
+		// On Android 12, Raise notification clicked event when Activity is already running in activity backstack
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+			val cleverTapAPI: CleverTapAPI by inject()
+
+			cleverTapAPI.pushNotificationClickedEvent(intent.extras)
 		}
 	}
 }
