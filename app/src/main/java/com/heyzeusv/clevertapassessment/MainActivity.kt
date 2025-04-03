@@ -130,6 +130,12 @@ fun MainScreen(mainVM: MainViewModel = koinViewModel()) {
 			) {
 				Text("Product Viewed Event")
 			}
+			Button(
+				onClick = mainVM::selectPillEvent,
+				enabled = cleverTapId != "Loading"
+			) {
+				Text("Select Pill Event")
+			}
 		}
 	}
 }

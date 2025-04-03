@@ -24,6 +24,9 @@
         <meta-data
             android:name="CLEVERTAP_TOKEN"
             android:value="${CLEVERTAP_TOKEN}" />
+        <meta-data
+            android:name="CLEVERTAP_NOTIFICATION_ICON"
+            android:value="notification_icon"/> <!-- name of your file in the drawable directory without the file extension. -->
         <service
             android:name="com.clevertap.android.sdk.pushnotification.fcm.FcmMessageListenerService"
             android:exported="true">
