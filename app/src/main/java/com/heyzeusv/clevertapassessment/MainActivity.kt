@@ -28,9 +28,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.clevertap.android.sdk.CleverTapAPI
+import com.heyzeusv.clevertapassessment.ui.BluePillScreen
+import com.heyzeusv.clevertapassessment.ui.RedPillScreen
 import com.heyzeusv.clevertapassessment.ui.theme.CleverTapAssessmentTheme
 import com.heyzeusv.clevertapassessment.util.NotificationUtils
+import com.heyzeusv.clevertapassessment.util.Screen
 import org.koin.android.ext.android.inject
 import org.koin.androidx.compose.KoinAndroidContext
 import org.koin.androidx.compose.koinViewModel
@@ -46,7 +53,10 @@ class MainActivity : ComponentActivity() {
 		setContent {
 			CleverTapAssessmentTheme {
 				KoinAndroidContext {
-					MainScreen(mainVM)
+					CleverTapAssessmentApp(
+						mainVM = mainVM,
+						navController = rememberNavController(),
+					)
 				}
 			}
 		}
@@ -70,6 +80,28 @@ class MainActivity : ComponentActivity() {
 		// Clear notification when intent contains extras.
 		this.intent.extras?.let {
 			NotificationUtils.dismissNotification(this.intent, applicationContext)
+		}
+	}
+}
+
+@Composable
+fun CleverTapAssessmentApp(
+	mainVM: MainViewModel,
+	navController: NavHostController,
+) {
+
+	NavHost(
+		navController = navController,
+		startDestination = Screen.Home,
+	) {
+		composable<Screen.Home> {
+			MainScreen(mainVM)
+		}
+		composable<Screen.RedPill> {
+			RedPillScreen()
+		}
+		composable<Screen.BluePill> {
+			BluePillScreen()
 		}
 	}
 }
