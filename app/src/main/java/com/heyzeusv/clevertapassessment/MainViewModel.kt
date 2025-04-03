@@ -31,11 +31,12 @@ class MainViewModel(private val cleverTapAPI: CleverTapAPI) : ViewModel() {
 		}
 	}
 
-	fun productViewedEvent(productId: Int, productName: String, emailId: String) {
+	fun productViewedEvent(productId: String, productName: String, emailId: String) {
+		val checkedId = if (productId.isBlank()) 1 else productId.toInt()
 		val df = DecimalFormat("#.##")
 		val productPrice = df.format(Random.nextDouble(1.00, 100.00))
 		val productViewedAction = mapOf(
-			"Product Id" to productId,
+			"Product Id" to checkedId,
 			"Product Name" to productName,
 			"Product Price" to productPrice,
 		)

@@ -18,7 +18,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -50,7 +49,7 @@ class MainActivity : ComponentActivity() {
 fun MainScreen(mainVM: MainViewModel = koinViewModel()) {
 	val cleverTapId by mainVM.cleverTapId.collectAsState()
 
-	var productId by remember { mutableIntStateOf(1) }
+	var productId by remember { mutableStateOf("1") }
 	var productName by remember { mutableStateOf("CleverTap") }
 	var emailId by remember { mutableStateOf("jesus") }
 
@@ -92,8 +91,8 @@ fun MainScreen(mainVM: MainViewModel = koinViewModel()) {
 				Text("Update dummy stuff")
 			}
 			OutlinedTextField(
-				value = "$productId",
-				onValueChange = { productId = it.toInt() },
+				value = productId,
+				onValueChange = { productId = it },
 				modifier = Modifier.fillMaxWidth(),
 				label = { Text("Product Id") },
 				keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
