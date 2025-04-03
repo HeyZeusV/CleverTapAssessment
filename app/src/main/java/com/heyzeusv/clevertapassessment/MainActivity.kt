@@ -18,6 +18,7 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -32,7 +33,6 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.clevertap.android.sdk.CleverTapAPI
 import com.heyzeusv.clevertapassessment.ui.BluePillScreen
 import com.heyzeusv.clevertapassessment.ui.RedPillScreen
 import com.heyzeusv.clevertapassessment.ui.theme.CleverTapAssessmentTheme
@@ -67,9 +67,7 @@ class MainActivity : ComponentActivity() {
 
 		// On Android 12, Raise notification clicked event when Activity is already running in activity backstack
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-			val cleverTapAPI: CleverTapAPI by inject()
-
-			cleverTapAPI.pushNotificationClickedEvent(intent.extras)
+			mainVM.handleIntent(intent.extras)
 			NotificationUtils.dismissNotification(intent, applicationContext)
 		}
 	}
@@ -79,6 +77,7 @@ class MainActivity : ComponentActivity() {
 
 		// Clear notification when intent contains extras.
 		this.intent.extras?.let {
+			mainVM.handleIntent(it)
 			NotificationUtils.dismissNotification(this.intent, applicationContext)
 		}
 	}
@@ -89,7 +88,13 @@ fun CleverTapAssessmentApp(
 	mainVM: MainViewModel,
 	navController: NavHostController,
 ) {
+	val pillSelection by mainVM.pillSelection.collectAsState()
 
+	LaunchedEffect(pillSelection) {
+		if (pillSelection != Screen.Home) {
+			navController.navigate(pillSelection)
+		}
+	}
 	NavHost(
 		navController = navController,
 		startDestination = Screen.Home,

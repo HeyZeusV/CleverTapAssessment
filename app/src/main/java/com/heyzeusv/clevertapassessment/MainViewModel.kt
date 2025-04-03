@@ -1,9 +1,11 @@
 package com.heyzeusv.clevertapassessment
 
 import android.util.Log
+import androidx.core.bundle.Bundle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.clevertap.android.sdk.CleverTapAPI
+import com.heyzeusv.clevertapassessment.util.Screen
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -16,6 +18,23 @@ class MainViewModel(private val cleverTapAPI: CleverTapAPI) : ViewModel() {
 
 	private val _cleverTapId = MutableStateFlow(cleverTapAPI.cleverTapID)
 	val cleverTapId: StateFlow<String> get() = _cleverTapId.asStateFlow()
+
+	private val _pillSelection = MutableStateFlow<Screen>(Screen.Home)
+	val pillSelection: StateFlow<Screen> get() = _pillSelection.asStateFlow()
+
+	fun handleIntent(extras: Bundle?) {
+		cleverTapAPI.pushNotificationClickedEvent(extras)
+
+		extras?.let {
+			it.getString("wzrk_c2a")?.let { value ->
+				when (value) {
+					"Red Pill" -> _pillSelection.value = Screen.RedPill
+					"Blue Pill" -> _pillSelection.value = Screen.BluePill
+					else -> { }
+				}
+			}
+		}
+	}
 
 	fun logIntoAccountWithIdentity(identity: String) {
 		viewModelScope.launch {
