@@ -30,11 +30,15 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.clevertap.android.sdk.CleverTapAPI
 import com.heyzeusv.clevertapassessment.ui.theme.CleverTapAssessmentTheme
+import com.heyzeusv.clevertapassessment.util.NotificationUtils
 import org.koin.android.ext.android.inject
 import org.koin.androidx.compose.KoinAndroidContext
 import org.koin.androidx.compose.koinViewModel
 
 class MainActivity : ComponentActivity() {
+
+	private val mainVM: MainViewModel by inject()
+
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
 
@@ -42,7 +46,7 @@ class MainActivity : ComponentActivity() {
 		setContent {
 			CleverTapAssessmentTheme {
 				KoinAndroidContext {
-					MainScreen()
+					MainScreen(mainVM)
 				}
 			}
 		}
@@ -56,6 +60,16 @@ class MainActivity : ComponentActivity() {
 			val cleverTapAPI: CleverTapAPI by inject()
 
 			cleverTapAPI.pushNotificationClickedEvent(intent.extras)
+			NotificationUtils.dismissNotification(intent, applicationContext)
+		}
+	}
+
+	override fun onAttachedToWindow() {
+		super.onAttachedToWindow()
+
+		// Clear notification when intent contains extras.
+		this.intent.extras?.let {
+			NotificationUtils.dismissNotification(this.intent, applicationContext)
 		}
 	}
 }
