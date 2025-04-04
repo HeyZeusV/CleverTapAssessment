@@ -81,10 +81,6 @@ class MainViewModel(private val cleverTapAPI: CleverTapAPI) : ViewModel() {
 		cleverTapAPI.initializeInbox()
 	}
 
-	fun showAppInbox() {
-		cleverTapAPI.showAppInbox()
-	}
-
 	/**
 	 *	Due to Android 12 update, have to manually handle push notification actions when Activity is
 	 *	in Activity stack. Afterwards, pass call to action value (if any) for further processing.
@@ -132,6 +128,23 @@ class MainViewModel(private val cleverTapAPI: CleverTapAPI) : ViewModel() {
 		}
 	}
 
+	/***
+	 * 	Pushes 1-5 random strings to currently logged in user as "MyStuff" user property and pushes
+	 * 	"Update MyStuff" event.
+	 */
+	fun updateMyStuff() {
+		val stuff = mutableListOf<String>()
+		repeat(Random.nextInt(0, 5)) {
+			stuff.add(randomString())
+		}
+
+		val profileUpdate = mapOf("MyStuff" to stuff)
+		Log.i(LOG_TAG, "updateMyStuff - push to user: $profileUpdate")
+
+		cleverTapAPI.pushProfile(profileUpdate)
+		cleverTapAPI.pushEvent("Update MyStuff")
+	}
+
 	/**
 	 * 	Pushes event "Product Viewed" with the following properties: [productId], [productName],
 	 * 	and a random [Double] price. Afterwards, pushes email that includes [emailId] to currently
@@ -153,23 +166,6 @@ class MainViewModel(private val cleverTapAPI: CleverTapAPI) : ViewModel() {
 		val profileUpdate = mapOf("Email" to "clevertap+$emailId@gmail.com")
 		Log.i(LOG_TAG, "productViewedEvent - push to user: $profileUpdate")
 		cleverTapAPI.pushProfile(profileUpdate)
-	}
-
-	/***
-	 * 	Pushes 1-5 random strings to currently logged in user as "MyStuff" user property and pushes
-	 * 	"Update MyStuff" event.
-	 */
-	fun updateMyStuff() {
-		val stuff = mutableListOf<String>()
-		repeat(Random.nextInt(0, 5)) {
-			stuff.add(randomString())
-		}
-
-		val profileUpdate = mapOf("MyStuff" to stuff)
-		Log.i(LOG_TAG, "updateMyStuff - push to user: $profileUpdate")
-
-		cleverTapAPI.pushProfile(profileUpdate)
-		cleverTapAPI.pushEvent("Update MyStuff")
 	}
 
 	// Used for Push Notification with actions
@@ -200,6 +196,10 @@ class MainViewModel(private val cleverTapAPI: CleverTapAPI) : ViewModel() {
 	// Stop In-App notifications and discard any new ones that come in
 	fun inAppDiscard() {
 		cleverTapAPI.discardInAppNotifications()
+	}
+
+	fun showAppInbox() {
+		cleverTapAPI.showAppInbox()
 	}
 
 	/**
