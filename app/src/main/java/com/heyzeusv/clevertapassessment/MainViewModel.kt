@@ -5,6 +5,7 @@ import androidx.core.bundle.Bundle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.clevertap.android.sdk.CleverTapAPI
+import com.clevertap.android.sdk.InAppNotificationButtonListener
 import com.heyzeusv.clevertapassessment.util.Screen
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -22,17 +23,25 @@ class MainViewModel(private val cleverTapAPI: CleverTapAPI) : ViewModel() {
 	private val _pillSelection = MutableStateFlow<Screen>(Screen.Home)
 	val pillSelection: StateFlow<Screen> get() = _pillSelection.asStateFlow()
 
+	fun setInAppNotificationButtonListener(listener: InAppNotificationButtonListener) {
+		cleverTapAPI.setInAppNotificationButtonListener(listener)
+	}
+
 	fun handleIntent(extras: Bundle?) {
 		cleverTapAPI.pushNotificationClickedEvent(extras)
 
 		extras?.let {
 			it.getString("wzrk_c2a")?.let { value ->
-				when (value) {
-					"Red Pill" -> _pillSelection.value = Screen.RedPill
-					"Blue Pill" -> _pillSelection.value = Screen.BluePill
-					else -> { }
-				}
+				handleCallToAction(value)
 			}
+		}
+	}
+
+	fun handleCallToAction(value: String) {
+		when (value) {
+			"Red Pill" -> _pillSelection.value = Screen.RedPill
+			"Blue Pill" -> _pillSelection.value = Screen.BluePill
+			else -> { }
 		}
 	}
 
@@ -58,7 +67,6 @@ class MainViewModel(private val cleverTapAPI: CleverTapAPI) : ViewModel() {
 			"Product Name" to productName,
 			"Product Price" to productPrice,
 		)
-
 		cleverTapAPI.pushEvent("Product Viewed", productViewedAction)
 
 		val profileUpdate = mapOf("Email" to "clevertap+$emailId@gmail.com")

@@ -33,6 +33,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.clevertap.android.sdk.InAppNotificationButtonListener
 import com.heyzeusv.clevertapassessment.ui.BluePillScreen
 import com.heyzeusv.clevertapassessment.ui.RedPillScreen
 import com.heyzeusv.clevertapassessment.ui.theme.CleverTapAssessmentTheme
@@ -41,14 +42,16 @@ import com.heyzeusv.clevertapassessment.util.Screen
 import org.koin.android.ext.android.inject
 import org.koin.androidx.compose.KoinAndroidContext
 import org.koin.androidx.compose.koinViewModel
+import java.util.HashMap
 
-class MainActivity : ComponentActivity() {
+class MainActivity : ComponentActivity(), InAppNotificationButtonListener {
 
 	private val mainVM: MainViewModel by inject()
 
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
 
+		mainVM.setInAppNotificationButtonListener(this)
 		enableEdgeToEdge()
 		setContent {
 			CleverTapAssessmentTheme {
@@ -79,6 +82,12 @@ class MainActivity : ComponentActivity() {
 		this.intent.extras?.let {
 			mainVM.handleIntent(it)
 			NotificationUtils.dismissNotification(this.intent, applicationContext)
+		}
+	}
+
+	override fun onInAppButtonClick(p0: HashMap<String, String>?) {
+		p0?.let {
+			mainVM.handleCallToAction(p0["In-App Selected Pill"] ?: "")
 		}
 	}
 }
