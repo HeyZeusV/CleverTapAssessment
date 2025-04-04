@@ -19,6 +19,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
+import java.util.Date
 import kotlin.math.roundToInt
 import kotlin.random.Random
 
@@ -106,6 +107,23 @@ class MainViewModel(private val cleverTapAPI: CleverTapAPI) : ViewModel() {
 			"Blue Pill" -> _pillSelection.value = Screen.BluePill
 			else -> { }
 		}
+	}
+
+	/**
+	 * 	Creates new account with hard coded values.
+	 */
+	fun createAccount() {
+		val profileUpdate = mapOf(
+			"Name" to "Test User One",
+			"Identity" to "TestUserOne",
+			"Email" to "test_user_one@gmail.com",
+			"DOB" to Date(),
+			"MyStuff" to listOf("Random", "Stuff"),
+		)
+
+		Log.i(LOG_TAG, "createAccount - create account with properties: $profileUpdate")
+
+		cleverTapAPI.onUserLogin(profileUpdate)
 	}
 
 	/**
