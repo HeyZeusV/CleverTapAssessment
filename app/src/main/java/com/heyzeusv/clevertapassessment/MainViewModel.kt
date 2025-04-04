@@ -98,6 +98,18 @@ class MainViewModel(private val cleverTapAPI: CleverTapAPI) : ViewModel() {
 		cleverTapAPI.pushEvent("In-App Deep Link")
 	}
 
+	fun inAppResume() {
+		cleverTapAPI.resumeInAppNotifications()
+	}
+
+	fun inAppSuspend() {
+		cleverTapAPI.suspendInAppNotifications()
+	}
+
+	fun inAppDiscard() {
+		cleverTapAPI.discardInAppNotifications()
+	}
+
 	private fun randomString(): String {
 		val charPool: List<Char> = ('a'..'z') + ('A'..'Z') + ('0'..'9')
 

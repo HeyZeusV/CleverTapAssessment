@@ -14,6 +14,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
+import androidx.compose.material3.Card
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -206,24 +208,62 @@ fun MainScreen(mainVM: MainViewModel = koinViewModel()) {
 			) {
 				Text("Select Pill Event")
 			}
-			Row(
-				modifier = Modifier.fillMaxWidth(),
-				horizontalArrangement = Arrangement.spacedBy(8.dp),
-				verticalAlignment = Alignment.CenterVertically,
-			) {
-				Button(
-					onClick = mainVM::inAppBasicEvent,
-					modifier = Modifier.weight(1f),
-					enabled = cleverTapId != "Loading",
-				) {
-					Text("In-App Basic")
-				}
-				Button(
-					onClick = mainVM::inAppDeepLinkEvent,
-					modifier = Modifier.weight(1f),
-					enabled = cleverTapId != "Loading",
-				) {
-					Text("In-App Deep Link")
+			Card {
+				Column(modifier = Modifier.padding(all = 8.dp)) {
+					Text(
+						text = "In-App",
+						modifier = Modifier.fillMaxWidth(),
+						style = MaterialTheme.typography.titleMedium.copy(
+							textAlign = TextAlign.Center,
+						),
+					)
+					Row(
+						modifier = Modifier.fillMaxWidth(),
+						horizontalArrangement = Arrangement.spacedBy(8.dp),
+						verticalAlignment = Alignment.CenterVertically,
+					) {
+						Button(
+							onClick = mainVM::inAppBasicEvent,
+							modifier = Modifier.weight(1f),
+							enabled = cleverTapId != "Loading",
+						) {
+							Text("Basic")
+						}
+						Button(
+							onClick = mainVM::inAppDeepLinkEvent,
+							modifier = Modifier.weight(1f),
+							enabled = cleverTapId != "Loading",
+						) {
+							Text("Deep Link")
+						}
+					}
+					Row(
+						modifier = Modifier.fillMaxWidth(),
+						horizontalArrangement = Arrangement.spacedBy(8.dp),
+						verticalAlignment = Alignment.CenterVertically,
+					) {
+						Button(
+							onClick = mainVM::inAppResume,
+							modifier = Modifier.weight(1f),
+							enabled = cleverTapId != "Loading",
+						) {
+							Text("Resume")
+						}
+						Button(
+							onClick = mainVM::inAppSuspend,
+							modifier = Modifier.weight(1f),
+							enabled = cleverTapId != "Loading",
+						) {
+							Text("Suspend")
+						}
+						Button(
+							onClick = mainVM::inAppDiscard,
+							modifier = Modifier.weight(1f),
+							enabled = cleverTapId != "Loading",
+						) {
+							Text("Discard")
+						}
+					}
 				}
 			}
 		}
