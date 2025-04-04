@@ -33,6 +33,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navDeepLink
 import com.clevertap.android.sdk.InAppNotificationButtonListener
 import com.heyzeusv.clevertapassessment.ui.BluePillScreen
 import com.heyzeusv.clevertapassessment.ui.RedPillScreen
@@ -111,10 +112,18 @@ fun CleverTapAssessmentApp(
 		composable<Screen.Home> {
 			MainScreen(mainVM)
 		}
-		composable<Screen.RedPill> {
+		composable<Screen.RedPill>(
+			deepLinks = listOf(navDeepLink {
+				uriPattern = "https://www.clevertap-jesus.com/red-pill"
+			}),
+		) {
 			RedPillScreen()
 		}
-		composable<Screen.BluePill> {
+		composable<Screen.BluePill>(
+			deepLinks = listOf(navDeepLink {
+				uriPattern = "https://www.clevertap-jesus.com/blue-pill"
+			}),
+		) {
 			BluePillScreen()
 		}
 	}
@@ -196,11 +205,25 @@ fun MainScreen(mainVM: MainViewModel = koinViewModel()) {
 			) {
 				Text("Select Pill Event")
 			}
-			Button(
-				onClick = mainVM::inAppBasicEvent,
-				enabled = cleverTapId != "Loading",
+			Row(
+				modifier = Modifier.fillMaxWidth(),
+				horizontalArrangement = Arrangement.spacedBy(8.dp),
+				verticalAlignment = Alignment.CenterVertically,
 			) {
-				Text("In-App Basic")
+				Button(
+					onClick = mainVM::inAppBasicEvent,
+					modifier = Modifier.weight(1f),
+					enabled = cleverTapId != "Loading",
+				) {
+					Text("In-App Basic")
+				}
+				Button(
+					onClick = mainVM::inAppDeepLinkEvent,
+					modifier = Modifier.weight(1f),
+					enabled = cleverTapId != "Loading",
+				) {
+					Text("In-App Deep Link")
+				}
 			}
 		}
 	}
