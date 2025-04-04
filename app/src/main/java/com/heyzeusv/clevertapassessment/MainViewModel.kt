@@ -22,46 +22,60 @@ import kotlinx.coroutines.launch
 import kotlin.math.roundToInt
 import kotlin.random.Random
 
+private const val LOG_TAG = "CleverTapAssessment_MainViewModel"
 class MainViewModel(private val cleverTapAPI: CleverTapAPI) : ViewModel() {
 
+	// Used to display switching between test users
 	private val _cleverTapId = MutableStateFlow(cleverTapAPI.cleverTapID)
 	val cleverTapId: StateFlow<String> get() = _cleverTapId.asStateFlow()
 
+	// Used to determine which pill screen to navigate to
 	private val _pillSelection = MutableStateFlow<Screen>(Screen.Home)
 	val pillSelection: StateFlow<Screen> get() = _pillSelection.asStateFlow()
 
+	// Used to check if App Inbox is initialized before trying to show it
 	private val _inboxInitialized = MutableStateFlow(false)
 	val inboxInitialized: StateFlow<Boolean> get() = _inboxInitialized.asStateFlow()
 	fun updateInboxInitialized(value: Boolean) { _inboxInitialized.value = value }
 
+	// Retrieves most Remote Config values
 	val remoteConfig: StateFlow<RemoteConfigValues> = callbackFlow {
 		val variablesChanged = object : VariablesChangedCallback() {
 			override fun variablesChanged() {
+				Log.i(LOG_TAG, "variablesChanged called")
 				val int = cleverTapAPI.getVariableValue("var_int") as Double
 				val long = cleverTapAPI.getVariableValue("var_long") as Double
 				val float = cleverTapAPI.getVariableValue("var_float") as Double
 				val double = cleverTapAPI.getVariableValue("var_double") as Double
 				val string = cleverTapAPI.getVariableValue("var_string") as String
 				val boolean = cleverTapAPI.getVariableValue("var_boolean") as Boolean
-				trySend(RemoteConfigValues(
+
+				val values = RemoteConfigValues(
 					int.toInt(), long.toLong(), float.toFloat(), double, string, boolean
-				))
+				)
+				Log.i(LOG_TAG, "variablesChanged - sending $values")
+				trySend(values)
 			}
 		}
 
 		cleverTapAPI.addVariablesChangedCallback(variablesChanged)
 
-		awaitClose { cleverTapAPI.removeAllVariablesChangedCallbacks() }
+		awaitClose {
+			Log.i(LOG_TAG, "Removing VariablesChangedCallbacks")
+			cleverTapAPI.removeAllVariablesChangedCallbacks()
+		}
 	}.stateIn(
 		scope = viewModelScope,
 		started = SharingStarted.WhileSubscribed(),
 		initialValue = RemoteConfigValues()
 	)
 
+	// In-App set up
 	fun setInAppNotificationButtonListener(listener: InAppNotificationButtonListener) {
 		cleverTapAPI.setInAppNotificationButtonListener(listener)
 	}
 
+	// App Inbox set up
 	fun setCTNotificationInboxListener(listener: CTInboxListener) {
 		cleverTapAPI.ctNotificationInboxListener = listener
 		cleverTapAPI.initializeInbox()
@@ -71,7 +85,12 @@ class MainViewModel(private val cleverTapAPI: CleverTapAPI) : ViewModel() {
 		cleverTapAPI.showAppInbox()
 	}
 
+	/**
+	 *	Due to Android 12 update, have to manually handle push notification actions when Activity is
+	 *	in Activity stack. Afterwards, pass call to action value (if any) for further processing.
+	 */
 	fun handleIntent(extras: Bundle?) {
+		Log.i(LOG_TAG, "handleIntent called")
 		cleverTapAPI.pushNotificationClickedEvent(extras)
 
 		extras?.let {
@@ -81,7 +100,11 @@ class MainViewModel(private val cleverTapAPI: CleverTapAPI) : ViewModel() {
 		}
 	}
 
+	/**
+	 * 	Update currently shown screen depending on passed [value].
+	 */
 	fun handleCallToAction(value: String) {
+		Log.i(LOG_TAG, "handleCallToAction - handle $value")
 		when (value) {
 			"Red Pill" -> _pillSelection.value = Screen.RedPill
 			"Blue Pill" -> _pillSelection.value = Screen.BluePill
@@ -89,12 +112,18 @@ class MainViewModel(private val cleverTapAPI: CleverTapAPI) : ViewModel() {
 		}
 	}
 
+	/**
+	 * 	Log into user with given [identity] and update [_cleverTapId].
+	 */
 	fun logIntoAccountWithIdentity(identity: String) {
 		viewModelScope.launch {
+			Log.i(LOG_TAG, "logIntoAccountWithIdentity - log into account with identity: $identity")
 			val profileUpdate = mapOf("Identity" to identity)
+			// Used to check if user has changed by difference in CleverTap ids.
 			val currentId = _cleverTapId.value
 
 			cleverTapAPI.onUserLogin(profileUpdate)
+			// Logging in is not instant, so add delay of 1 second between checks.
 			while (currentId == cleverTapAPI.cleverTapID) {
 				_cleverTapId.value = "Loading"
 				delay(1000)
@@ -103,6 +132,13 @@ class MainViewModel(private val cleverTapAPI: CleverTapAPI) : ViewModel() {
 		}
 	}
 
+	/**
+	 * 	Pushes event "Product Viewed" with the following properties: [productId], [productName],
+	 * 	and a random [Double] price. Afterwards, pushes email that includes [emailId] to currently
+	 * 	logged in user.
+	 *
+	 * 	Tech Section Steps 4/5
+	 */
 	fun productViewedEvent(productId: String, productName: String, emailId: String) {
 		val checkedId = if (productId.isBlank()) 1 else productId.toInt()
 		val productPrice = (Random.nextDouble(1.00, 100.00) * 100.0).roundToInt() / 100.0
@@ -111,49 +147,65 @@ class MainViewModel(private val cleverTapAPI: CleverTapAPI) : ViewModel() {
 			"Product Name" to productName,
 			"Product Price" to productPrice,
 		)
+		Log.i(LOG_TAG, "productViewedEvent - event properties: $productViewedAction")
 		cleverTapAPI.pushEvent("Product Viewed", productViewedAction)
 
 		val profileUpdate = mapOf("Email" to "clevertap+$emailId@gmail.com")
+		Log.i(LOG_TAG, "productViewedEvent - push to user: $profileUpdate")
 		cleverTapAPI.pushProfile(profileUpdate)
-		Log.i("CleverTapAssessment", "Product Viewed: Id = $productId, Name = $productName, Price = $productPrice")
 	}
 
+	/***
+	 * 	Pushes 1-5 random strings to currently logged in user as "MyStuff" user property and pushes
+	 * 	"Update MyStuff" event.
+	 */
 	fun updateMyStuff() {
 		val stuff = mutableListOf<String>()
 		repeat(Random.nextInt(0, 5)) {
 			stuff.add(randomString())
 		}
-		Log.i("CleverTapAssessment", "Updated MyStuff: $stuff")
 
 		val profileUpdate = mapOf("MyStuff" to stuff)
+		Log.i(LOG_TAG, "updateMyStuff - push to user: $profileUpdate")
+
 		cleverTapAPI.pushProfile(profileUpdate)
 		cleverTapAPI.pushEvent("Update MyStuff")
 	}
 
+	// Used for Push Notification with actions
 	fun selectPillEvent() {
 		cleverTapAPI.pushEvent("Select Pill")
 	}
 
+	// Used for In-App notifications
 	fun inAppBasicEvent() {
 		cleverTapAPI.pushEvent("In-App Basic")
 	}
 
+	// Used for In-App notifications that use deeplinks
 	fun inAppDeepLinkEvent() {
 		cleverTapAPI.pushEvent("In-App Deep Link")
 	}
 
+	// Resume receiving In-App notifications
 	fun inAppResume() {
 		cleverTapAPI.resumeInAppNotifications()
 	}
 
+	// Stop In-App notifications, but keep them in queue for when resume is called
 	fun inAppSuspend() {
 		cleverTapAPI.suspendInAppNotifications()
 	}
 
+	// Stop In-App notifications and discard any new ones that come in
 	fun inAppDiscard() {
 		cleverTapAPI.discardInAppNotifications()
 	}
 
+	/**
+	 * 	Define variables and sync them to Dashboard in order to be used as Remote Config. Must be
+	 * 	called when logged in user is marked as test account.
+	 */
 	private fun defineAndSyncVariables() {
 		cleverTapAPI.defineVariable("var_byte", 1)
 		cleverTapAPI.defineVariable("var_short", 2)
@@ -167,19 +219,25 @@ class MainViewModel(private val cleverTapAPI: CleverTapAPI) : ViewModel() {
 		cleverTapAPI.syncVariables()
 	}
 
+	/**
+	 * 	Attempt to fetch Remote Config variables. This will cause Remote Config callbacks to be
+	 * 	triggered.
+	 */
+	fun fetchVariables() {
+		cleverTapAPI.fetchVariables { isSuccess ->
+			Log.i(LOG_TAG, "fetchVariables - fetch is successful: $isSuccess")
+		}
+	}
 
+	/**
+	 * 	Produce a random 1-10 length string made up of letters and digits.
+	 */
 	private fun randomString(): String {
 		val charPool: List<Char> = ('a'..'z') + ('A'..'Z') + ('0'..'9')
 
 		return (1..10)
 			.map { Random.nextInt(0, charPool.size).let { charPool[it] } }
 			.joinToString("")
-	}
-
-	fun fetchVariables() {
-		cleverTapAPI.fetchVariables { isSuccess ->
-			Log.i("CleverTapAssessment", "Fetch is $isSuccess")
-		}
 	}
 
 //	init {
