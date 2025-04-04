@@ -113,19 +113,9 @@ fun CleverTapAssessmentApp(
 		navController = navController,
 		startDestination = Screen.Home,
 	) {
-		composable<Screen.Home> {
-			MainScreen(mainVM)
-		}
-		composable<Screen.RedPill>(
-
-		) {
-			RedPillScreen()
-		}
-		composable<Screen.BluePill>(
-
-		) {
-			BluePillScreen()
-		}
+		composable<Screen.Home> { MainScreen(mainVM) }
+		composable<Screen.RedPill> { RedPillScreen() }
+		composable<Screen.BluePill> { BluePillScreen() }
 		composable<Screen.Pill>(
 			deepLinks = listOf(
 				navDeepLink<Screen.Pill>(basePath = "https://www.clevertap-jesus.com")
