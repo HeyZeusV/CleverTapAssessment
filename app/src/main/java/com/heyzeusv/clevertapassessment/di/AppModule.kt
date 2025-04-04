@@ -12,11 +12,13 @@ import org.koin.dsl.module
 val appModule = module {
 	single {
 		CleverTapAPI.getDefaultInstance(androidContext())?.apply {
+			// set Log level depending on build variant
 			if (BuildConfig.DEBUG) {
 				setDebugLevel(LogLevel.VERBOSE)
 			} else {
 				setDebugLevel(LogLevel.OFF)
 			}
+			// ask for Push permission if it hasn't been granted.
 			if (!isPushPermissionGranted) {
 				promptForPushPermission(true)
 			}
