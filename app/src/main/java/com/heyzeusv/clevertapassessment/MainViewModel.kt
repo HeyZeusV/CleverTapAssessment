@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.core.bundle.Bundle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.clevertap.android.sdk.CTInboxListener
 import com.clevertap.android.sdk.CleverTapAPI
 import com.clevertap.android.sdk.InAppNotificationButtonListener
 import com.heyzeusv.clevertapassessment.util.Screen
@@ -23,8 +24,21 @@ class MainViewModel(private val cleverTapAPI: CleverTapAPI) : ViewModel() {
 	private val _pillSelection = MutableStateFlow<Screen>(Screen.Home)
 	val pillSelection: StateFlow<Screen> get() = _pillSelection.asStateFlow()
 
+	private val _inboxInitialized = MutableStateFlow(false)
+	val inboxInitialized: StateFlow<Boolean> get() = _inboxInitialized.asStateFlow()
+	fun updateInboxInitialized(value: Boolean) { _inboxInitialized.value = value }
+
 	fun setInAppNotificationButtonListener(listener: InAppNotificationButtonListener) {
 		cleverTapAPI.setInAppNotificationButtonListener(listener)
+	}
+
+	fun setCTNotificationInboxListener(listener: CTInboxListener) {
+		cleverTapAPI.ctNotificationInboxListener = listener
+		cleverTapAPI.initializeInbox()
+	}
+
+	fun showAppInbox() {
+		cleverTapAPI.showAppInbox()
 	}
 
 	fun handleIntent(extras: Bundle?) {

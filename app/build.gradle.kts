@@ -73,8 +73,17 @@ dependencies {
 	// CleverTap
 	implementation(libs.clevertap.android.sdk)
 
+	// CleverTap App Inbox
+	implementation(libs.androidx.appcompat)
+	implementation(libs.androidx.recyclerview)
+	implementation(libs.androidx.viewpager)
+	implementation(libs.material)
+
 	// Firebase
 	implementation(libs.firebase.messaging)
+
+	// Glide
+	implementation(libs.glide)
 
 	// Koin
 	implementation(libs.koin.compose)

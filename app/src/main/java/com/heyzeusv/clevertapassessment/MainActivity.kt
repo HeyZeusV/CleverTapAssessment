@@ -3,6 +3,7 @@ package com.heyzeusv.clevertapassessment
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -37,6 +38,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navDeepLink
 import androidx.navigation.toRoute
+import com.clevertap.android.sdk.CTInboxListener
 import com.clevertap.android.sdk.InAppNotificationButtonListener
 import com.heyzeusv.clevertapassessment.ui.BluePillScreen
 import com.heyzeusv.clevertapassessment.ui.PillScreen
@@ -51,7 +53,7 @@ import org.koin.androidx.compose.KoinAndroidContext
 import org.koin.androidx.compose.koinViewModel
 import java.util.HashMap
 
-class MainActivity : ComponentActivity(), InAppNotificationButtonListener {
+class MainActivity : ComponentActivity(), InAppNotificationButtonListener, CTInboxListener {
 
 	private val mainVM: MainViewModel by inject()
 
@@ -59,6 +61,7 @@ class MainActivity : ComponentActivity(), InAppNotificationButtonListener {
 		super.onCreate(savedInstanceState)
 
 		mainVM.setInAppNotificationButtonListener(this)
+		mainVM.setCTNotificationInboxListener(this)
 		enableEdgeToEdge()
 		setContent {
 			CleverTapAssessmentTheme {
@@ -96,6 +99,14 @@ class MainActivity : ComponentActivity(), InAppNotificationButtonListener {
 		p0?.let {
 			mainVM.handleCallToAction(p0["In-App Selected Pill"] ?: "")
 		}
+	}
+
+	override fun inboxDidInitialize() {
+		mainVM.updateInboxInitialized(true)
+	}
+
+	override fun inboxMessagesDidUpdate() {
+		Log.i("CleverTapAssessment", "inboxMessagesDidUpdate() called")
 	}
 }
 
@@ -135,6 +146,7 @@ fun CleverTapAssessmentApp(
 @Composable
 fun MainScreen(mainVM: MainViewModel = koinViewModel()) {
 	val cleverTapId by mainVM.cleverTapId.collectAsState()
+	val inboxInitialized by mainVM.inboxInitialized.collectAsState()
 
 	var productId by remember { mutableStateOf("1") }
 	var productName by remember { mutableStateOf("CleverTap") }
@@ -265,6 +277,11 @@ fun MainScreen(mainVM: MainViewModel = koinViewModel()) {
 						}
 					}
 				}
+			}
+			Button(
+				onClick = { if (inboxInitialized) { mainVM.showAppInbox() } }
+			) {
+				Text("Show App Inbox")
 			}
 		}
 	}
