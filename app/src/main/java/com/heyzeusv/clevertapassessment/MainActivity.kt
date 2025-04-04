@@ -147,6 +147,7 @@ fun CleverTapAssessmentApp(
 fun MainScreen(mainVM: MainViewModel = koinViewModel()) {
 	val cleverTapId by mainVM.cleverTapId.collectAsState()
 	val inboxInitialized by mainVM.inboxInitialized.collectAsState()
+	val remoteConfig by mainVM.remoteConfig.collectAsState()
 
 	var productId by remember { mutableStateOf("1") }
 	var productName by remember { mutableStateOf("CleverTap") }
@@ -222,13 +223,6 @@ fun MainScreen(mainVM: MainViewModel = koinViewModel()) {
 			}
 			Card {
 				Column(modifier = Modifier.padding(all = 8.dp)) {
-					Text(
-						text = "In-App",
-						modifier = Modifier.fillMaxWidth(),
-						style = MaterialTheme.typography.titleMedium.copy(
-							textAlign = TextAlign.Center,
-						),
-					)
 					Row(
 						modifier = Modifier.fillMaxWidth(),
 						horizontalArrangement = Arrangement.spacedBy(8.dp),
@@ -241,6 +235,12 @@ fun MainScreen(mainVM: MainViewModel = koinViewModel()) {
 						) {
 							Text("Basic")
 						}
+						Text(
+							text = "In-App",
+							style = MaterialTheme.typography.titleMedium.copy(
+								textAlign = TextAlign.Center,
+							),
+						)
 						Button(
 							onClick = mainVM::inAppDeepLinkEvent,
 							modifier = Modifier.weight(1f),
@@ -282,6 +282,43 @@ fun MainScreen(mainVM: MainViewModel = koinViewModel()) {
 				onClick = { if (inboxInitialized) { mainVM.showAppInbox() } }
 			) {
 				Text("Show App Inbox")
+			}
+			Card {
+				Column(modifier = Modifier.padding(all = 8.dp)) {
+					Row(
+						modifier = Modifier.fillMaxWidth(),
+						horizontalArrangement = Arrangement.spacedBy(8.dp),
+						verticalAlignment = Alignment.CenterVertically,
+					) {
+						Text(
+							text = "Remote Config",
+							modifier = Modifier.weight(1f),
+							style = MaterialTheme.typography.titleMedium.copy(
+								textAlign = TextAlign.Center,
+							),
+						)
+						Button(
+							onClick = mainVM::fetchVariables,
+							modifier = Modifier.weight(1f),
+						) {
+							Text("Fetch Variables")
+						}
+					}
+					Row(
+						modifier = Modifier.fillMaxWidth(),
+						horizontalArrangement = Arrangement.spacedBy(8.dp),
+						verticalAlignment = Alignment.CenterVertically,
+					) {
+						Text(
+							text = "Int: ${remoteConfig.int}\nLong: ${remoteConfig.long}\nFloat: ${remoteConfig.float}",
+							modifier = Modifier.weight(1f),
+						)
+						Text(
+							text = "Double: ${remoteConfig.double}\nString: ${remoteConfig.string}\n${remoteConfig.boolean}",
+							modifier = Modifier.weight(1f),
+						)
+					}
+				}
 			}
 		}
 	}

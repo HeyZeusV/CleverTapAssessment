@@ -7,11 +7,17 @@ import androidx.lifecycle.viewModelScope
 import com.clevertap.android.sdk.CTInboxListener
 import com.clevertap.android.sdk.CleverTapAPI
 import com.clevertap.android.sdk.InAppNotificationButtonListener
+import com.clevertap.android.sdk.variables.callbacks.VariablesChangedCallback
+import com.heyzeusv.clevertapassessment.util.RemoteConfigValues
 import com.heyzeusv.clevertapassessment.util.Screen
+import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.callbackFlow
+import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import kotlin.math.roundToInt
 import kotlin.random.Random
@@ -27,6 +33,30 @@ class MainViewModel(private val cleverTapAPI: CleverTapAPI) : ViewModel() {
 	private val _inboxInitialized = MutableStateFlow(false)
 	val inboxInitialized: StateFlow<Boolean> get() = _inboxInitialized.asStateFlow()
 	fun updateInboxInitialized(value: Boolean) { _inboxInitialized.value = value }
+
+	val remoteConfig: StateFlow<RemoteConfigValues> = callbackFlow {
+		val variablesChanged = object : VariablesChangedCallback() {
+			override fun variablesChanged() {
+				val int = cleverTapAPI.getVariableValue("var_int") as Double
+				val long = cleverTapAPI.getVariableValue("var_long") as Double
+				val float = cleverTapAPI.getVariableValue("var_float") as Double
+				val double = cleverTapAPI.getVariableValue("var_double") as Double
+				val string = cleverTapAPI.getVariableValue("var_string") as String
+				val boolean = cleverTapAPI.getVariableValue("var_boolean") as Boolean
+				trySend(RemoteConfigValues(
+					int.toInt(), long.toLong(), float.toFloat(), double, string, boolean
+				))
+			}
+		}
+
+		cleverTapAPI.addVariablesChangedCallback(variablesChanged)
+
+		awaitClose { cleverTapAPI.removeAllVariablesChangedCallbacks() }
+	}.stateIn(
+		scope = viewModelScope,
+		started = SharingStarted.WhileSubscribed(),
+		initialValue = RemoteConfigValues()
+	)
 
 	fun setInAppNotificationButtonListener(listener: InAppNotificationButtonListener) {
 		cleverTapAPI.setInAppNotificationButtonListener(listener)
@@ -124,6 +154,20 @@ class MainViewModel(private val cleverTapAPI: CleverTapAPI) : ViewModel() {
 		cleverTapAPI.discardInAppNotifications()
 	}
 
+	private fun defineAndSyncVariables() {
+		cleverTapAPI.defineVariable("var_byte", 1)
+		cleverTapAPI.defineVariable("var_short", 2)
+		cleverTapAPI.defineVariable("var_int", 3)
+		cleverTapAPI.defineVariable("var_long", 4L)
+		cleverTapAPI.defineVariable("var_float", 5F)
+		cleverTapAPI.defineVariable("var_double", 6.0)
+		cleverTapAPI.defineVariable("var_string", "Remote Config")
+		cleverTapAPI.defineVariable("var_boolean", true)
+
+		cleverTapAPI.syncVariables()
+	}
+
+
 	private fun randomString(): String {
 		val charPool: List<Char> = ('a'..'z') + ('A'..'Z') + ('0'..'9')
 
@@ -131,4 +175,14 @@ class MainViewModel(private val cleverTapAPI: CleverTapAPI) : ViewModel() {
 			.map { Random.nextInt(0, charPool.size).let { charPool[it] } }
 			.joinToString("")
 	}
+
+	fun fetchVariables() {
+		cleverTapAPI.fetchVariables { isSuccess ->
+			Log.i("CleverTapAssessment", "Fetch is $isSuccess")
+		}
+	}
+
+//	init {
+//		defineAndSyncVariables()
+//	}
 }
