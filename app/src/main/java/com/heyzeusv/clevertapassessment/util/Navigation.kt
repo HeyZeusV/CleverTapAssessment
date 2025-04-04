@@ -9,4 +9,6 @@ sealed class Screen {
 	data object RedPill : Screen()
 	@Serializable
 	data object BluePill : Screen()
+	@Serializable
+	data class Pill(val pill: String) : Screen()
 }

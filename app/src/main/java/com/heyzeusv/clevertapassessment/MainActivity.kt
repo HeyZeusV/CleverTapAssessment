@@ -34,11 +34,15 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navDeepLink
+import androidx.navigation.toRoute
 import com.clevertap.android.sdk.InAppNotificationButtonListener
 import com.heyzeusv.clevertapassessment.ui.BluePillScreen
+import com.heyzeusv.clevertapassessment.ui.PillScreen
 import com.heyzeusv.clevertapassessment.ui.RedPillScreen
 import com.heyzeusv.clevertapassessment.ui.theme.CleverTapAssessmentTheme
 import com.heyzeusv.clevertapassessment.util.NotificationUtils
+import com.heyzeusv.clevertapassessment.util.Pill.BLUE
+import com.heyzeusv.clevertapassessment.util.Pill.RED
 import com.heyzeusv.clevertapassessment.util.Screen
 import org.koin.android.ext.android.inject
 import org.koin.androidx.compose.KoinAndroidContext
@@ -113,18 +117,25 @@ fun CleverTapAssessmentApp(
 			MainScreen(mainVM)
 		}
 		composable<Screen.RedPill>(
-			deepLinks = listOf(navDeepLink {
-				uriPattern = "https://www.clevertap-jesus.com/red-pill"
-			}),
+
 		) {
 			RedPillScreen()
 		}
 		composable<Screen.BluePill>(
-			deepLinks = listOf(navDeepLink {
-				uriPattern = "https://www.clevertap-jesus.com/blue-pill"
-			}),
+
 		) {
 			BluePillScreen()
+		}
+		composable<Screen.Pill>(
+			deepLinks = listOf(
+				navDeepLink<Screen.Pill>(basePath = "https://www.clevertap-jesus.com")
+			),
+		) { backStackEntry ->
+			val pillSelected = backStackEntry.toRoute<Screen.Pill>().pill
+			when (pillSelected) {
+				"red-pill" -> PillScreen(RED)
+				else -> PillScreen(BLUE)
+			}
 		}
 	}
 }
