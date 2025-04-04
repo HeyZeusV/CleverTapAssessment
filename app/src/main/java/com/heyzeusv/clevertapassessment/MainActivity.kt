@@ -177,15 +177,21 @@ fun MainScreen(mainVM: MainViewModel = koinViewModel()) {
 			)
 			Button(
 				onClick = { mainVM.productViewedEvent(productId, productName, emailId) },
-				enabled = cleverTapId != "Loading"
+				enabled = cleverTapId != "Loading",
 			) {
 				Text("Product Viewed Event")
 			}
 			Button(
 				onClick = mainVM::selectPillEvent,
-				enabled = cleverTapId != "Loading"
+				enabled = cleverTapId != "Loading",
 			) {
 				Text("Select Pill Event")
+			}
+			Button(
+				onClick = mainVM::inAppBasicEvent,
+				enabled = cleverTapId != "Loading",
+			) {
+				Text("In-App Basic")
 			}
 		}
 	}

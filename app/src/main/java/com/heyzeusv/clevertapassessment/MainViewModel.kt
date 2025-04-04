@@ -82,6 +82,10 @@ class MainViewModel(private val cleverTapAPI: CleverTapAPI) : ViewModel() {
 		cleverTapAPI.pushEvent("Select Pill")
 	}
 
+	fun inAppBasicEvent() {
+		cleverTapAPI.pushEvent("In-App Basic")
+	}
+
 	private fun randomString(): String {
 		val charPool: List<Char> = ('a'..'z') + ('A'..'Z') + ('0'..'9')
 
