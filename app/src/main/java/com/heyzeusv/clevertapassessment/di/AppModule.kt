@@ -18,10 +18,6 @@ val appModule = module {
 			} else {
 				setDebugLevel(LogLevel.OFF)
 			}
-			// ask for Push permission if it hasn't been granted.
-			if (!isPushPermissionGranted) {
-				promptForPushPermission(true)
-			}
 		}
 	}
 	viewModelOf(::MainViewModel)
