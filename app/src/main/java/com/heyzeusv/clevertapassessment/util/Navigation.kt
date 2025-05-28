@@ -4,7 +4,7 @@ import kotlinx.serialization.Serializable
 
 sealed class Screen {
 	@Serializable
-	data object Home : Screen()
+	data object Features : Screen()
 	@Serializable
 	data object RedPill : Screen()
 	@Serializable

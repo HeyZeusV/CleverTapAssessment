@@ -1,4 +1,4 @@
-package com.heyzeusv.clevertapassessment.ui
+package com.heyzeusv.clevertapassessment.ui.features
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -27,20 +27,20 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import com.heyzeusv.clevertapassessment.ui.features.FeaturesViewModel
+import com.heyzeusv.clevertapassessment.ui.CreateLoginForm
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
-fun MainScreen(mainVM: FeaturesViewModel = koinViewModel()) {
-	val cleverTapId by mainVM.cleverTapId.collectAsState()
-	val inboxInitialized by mainVM.inboxInitialized.collectAsState()
-	val remoteConfig by mainVM.remoteConfig.collectAsState()
+fun FeaturesScreen(featuresVm: FeaturesViewModel = koinViewModel()) {
+	val cleverTapId by featuresVm.cleverTapId.collectAsState()
+	val inboxInitialized by featuresVm.inboxInitialized.collectAsState()
+	val remoteConfig by featuresVm.remoteConfig.collectAsState()
 
 	var productId by remember { mutableStateOf("1") }
 	var productName by remember { mutableStateOf("CleverTap") }
 	var emailId by remember { mutableStateOf("jesus") }
 
-	LaunchedEffect(Unit) { mainVM.askPushNotificationPermission() }
+	LaunchedEffect(Unit) { featuresVm.askPushNotificationPermission() }
 
 	Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
 		Column(
@@ -54,11 +54,11 @@ fun MainScreen(mainVM: FeaturesViewModel = koinViewModel()) {
 		) {
 			CreateLoginForm(
 				cleverTapId = cleverTapId,
-				createOnClick = mainVM::createAccountWithIdentity,
-				loginOnClick = mainVM::logIntoAccountWithIdentity,
+				createOnClick = featuresVm::createAccountWithIdentity,
+				loginOnClick = featuresVm::logIntoAccountWithIdentity,
 			)
 			Button(
-				onClick = { mainVM.updateMyStuff() },
+				onClick = { featuresVm.updateMyStuff() },
 				enabled = cleverTapId != "Loading",
 			) {
 				Text("Update dummy stuff")
@@ -100,14 +100,14 @@ fun MainScreen(mainVM: FeaturesViewModel = koinViewModel()) {
 						verticalAlignment = Alignment.CenterVertically,
 					) {
 						Button(
-							onClick = { mainVM.productViewedEvent(productId, productName, emailId) },
+							onClick = { featuresVm.productViewedEvent(productId, productName, emailId) },
 							modifier = Modifier.weight(1f),
 							enabled = cleverTapId != "Loading",
 						) {
 							Text("Product Viewed Event")
 						}
 						Button(
-							onClick = mainVM::selectPillEvent,
+							onClick = featuresVm::selectPillEvent,
 							modifier = Modifier.weight(1f),
 							enabled = cleverTapId != "Loading",
 						) {
@@ -131,14 +131,14 @@ fun MainScreen(mainVM: FeaturesViewModel = koinViewModel()) {
 						verticalAlignment = Alignment.CenterVertically,
 					) {
 						Button(
-							onClick = mainVM::inAppBasicEvent,
+							onClick = featuresVm::inAppBasicEvent,
 							modifier = Modifier.weight(1f),
 							enabled = cleverTapId != "Loading",
 						) {
 							Text("Basic")
 						}
 						Button(
-							onClick = mainVM::inAppDeepLinkEvent,
+							onClick = featuresVm::inAppDeepLinkEvent,
 							modifier = Modifier.weight(1f),
 							enabled = cleverTapId != "Loading",
 						) {
@@ -151,21 +151,21 @@ fun MainScreen(mainVM: FeaturesViewModel = koinViewModel()) {
 						verticalAlignment = Alignment.CenterVertically,
 					) {
 						Button(
-							onClick = mainVM::inAppResume,
+							onClick = featuresVm::inAppResume,
 							modifier = Modifier.weight(1f),
 							enabled = cleverTapId != "Loading",
 						) {
 							Text("Resume")
 						}
 						Button(
-							onClick = mainVM::inAppSuspend,
+							onClick = featuresVm::inAppSuspend,
 							modifier = Modifier.weight(1f),
 							enabled = cleverTapId != "Loading",
 						) {
 							Text("Suspend")
 						}
 						Button(
-							onClick = mainVM::inAppDiscard,
+							onClick = featuresVm::inAppDiscard,
 							modifier = Modifier.weight(1f),
 							enabled = cleverTapId != "Loading",
 						) {
@@ -175,7 +175,7 @@ fun MainScreen(mainVM: FeaturesViewModel = koinViewModel()) {
 				}
 			}
 			Button(
-				onClick = { if (inboxInitialized) { mainVM.showAppInbox() } }
+				onClick = { if (inboxInitialized) { featuresVm.showAppInbox() } }
 			) {
 				Text("Show App Inbox")
 			}
@@ -194,7 +194,7 @@ fun MainScreen(mainVM: FeaturesViewModel = koinViewModel()) {
 						verticalAlignment = Alignment.CenterVertically,
 					) {
 						Button(
-							onClick = mainVM::fetchVariables,
+							onClick = featuresVm::fetchVariables,
 							modifier = Modifier.weight(1f),
 						) {
 							Text("Fetch Variables")

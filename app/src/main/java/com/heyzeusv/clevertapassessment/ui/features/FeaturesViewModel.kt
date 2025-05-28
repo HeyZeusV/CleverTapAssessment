@@ -1,4 +1,4 @@
-package com.heyzeusv.clevertapassessment
+package com.heyzeusv.clevertapassessment.ui.features
 
 import android.util.Log
 import androidx.core.bundle.Bundle
@@ -24,14 +24,14 @@ import kotlin.math.roundToInt
 import kotlin.random.Random
 
 private const val LOG_TAG = "CleverTapAssessment_MainViewModel"
-class MainViewModel(private val cleverTapAPI: CleverTapAPI) : ViewModel() {
+class FeaturesViewModel(private val cleverTapAPI: CleverTapAPI) : ViewModel() {
 
 	// Used to display switching between test users
 	private val _cleverTapId = MutableStateFlow(cleverTapAPI.cleverTapID)
 	val cleverTapId: StateFlow<String> get() = _cleverTapId.asStateFlow()
 
 	// Used to determine which pill screen to navigate to
-	private val _pillSelection = MutableStateFlow<Screen>(Screen.Home)
+	private val _pillSelection = MutableStateFlow<Screen>(Screen.Features)
 	val pillSelection: StateFlow<Screen> get() = _pillSelection.asStateFlow()
 
 	// Used to check if App Inbox is initialized before trying to show it
@@ -67,7 +67,7 @@ class MainViewModel(private val cleverTapAPI: CleverTapAPI) : ViewModel() {
 		}
 	}.stateIn(
 		scope = viewModelScope,
-		started = SharingStarted.WhileSubscribed(),
+		started = SharingStarted.Companion.WhileSubscribed(),
 		initialValue = RemoteConfigValues()
 	)
 
@@ -173,7 +173,7 @@ class MainViewModel(private val cleverTapAPI: CleverTapAPI) : ViewModel() {
 	 */
 	fun updateMyStuff() {
 		val stuff = mutableListOf<String>()
-		repeat(Random.nextInt(0, 5)) {
+		repeat(Random.Default.nextInt(0, 5)) {
 			stuff.add(randomString())
 		}
 
@@ -193,7 +193,7 @@ class MainViewModel(private val cleverTapAPI: CleverTapAPI) : ViewModel() {
 	 */
 	fun productViewedEvent(productId: String, productName: String, emailId: String) {
 		val checkedId = if (productId.isBlank()) 1 else productId.toInt()
-		val productPrice = (Random.nextDouble(1.00, 100.00) * 100.0).roundToInt() / 100.0
+		val productPrice = (Random.Default.nextDouble(1.00, 100.00) * 100.0).roundToInt() / 100.0
 		val productViewedAction = mapOf(
 			"Product Id" to checkedId,
 			"Product Name" to productName,
@@ -275,7 +275,7 @@ class MainViewModel(private val cleverTapAPI: CleverTapAPI) : ViewModel() {
 		val charPool: List<Char> = ('a'..'z') + ('A'..'Z') + ('0'..'9')
 
 		return (1..10)
-			.map { Random.nextInt(0, charPool.size).let { charPool[it] } }
+			.map { Random.Default.nextInt(0, charPool.size).let { charPool[it] } }
 			.joinToString("")
 	}
 
