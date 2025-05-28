@@ -19,9 +19,9 @@ import androidx.navigation.navDeepLink
 import androidx.navigation.toRoute
 import com.clevertap.android.sdk.CTInboxListener
 import com.clevertap.android.sdk.InAppNotificationButtonListener
+import com.heyzeusv.clevertapassessment.ui.MainViewModel
 import com.heyzeusv.clevertapassessment.ui.features.BluePillScreen
 import com.heyzeusv.clevertapassessment.ui.features.FeaturesScreen
-import com.heyzeusv.clevertapassessment.ui.features.FeaturesViewModel
 import com.heyzeusv.clevertapassessment.ui.features.PillScreen
 import com.heyzeusv.clevertapassessment.ui.features.RedPillScreen
 import com.heyzeusv.clevertapassessment.ui.theme.CleverTapAssessmentTheme
@@ -35,7 +35,7 @@ import java.util.HashMap
 
 class MainActivity : ComponentActivity(), InAppNotificationButtonListener, CTInboxListener {
 
-	private val mainVM: FeaturesViewModel by inject()
+	private val mainVM: MainViewModel by inject()
 
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
@@ -88,7 +88,7 @@ class MainActivity : ComponentActivity(), InAppNotificationButtonListener, CTInb
 	 * 	Called if App Inbox was successfully initialized.
 	 */
 	override fun inboxDidInitialize() {
-		mainVM.updateInboxInitialized(true)
+		Log.i("CleverTapAssessment", "inboxDidInitialize() called")
 	}
 
 	/**
@@ -101,21 +101,21 @@ class MainActivity : ComponentActivity(), InAppNotificationButtonListener, CTInb
 
 @Composable
 fun CleverTapAssessmentApp(
-	mainVM: FeaturesViewModel,
+	mainVM: MainViewModel,
 	navController: NavHostController,
 ) {
-	val pillSelection by mainVM.pillSelection.collectAsState()
+	val navigateTo by mainVM.navigateTo.collectAsState()
 
-	LaunchedEffect(pillSelection) {
-		if (pillSelection != Screen.Features) {
-			navController.navigate(pillSelection)
+	LaunchedEffect(navigateTo) {
+		if (navigateTo != null) {
+			navController.navigate(navigateTo!!)
 		}
 	}
 	NavHost(
 		navController = navController,
 		startDestination = Screen.Features,
 	) {
-		composable<Screen.Features> { FeaturesScreen(mainVM) }
+		composable<Screen.Features> { FeaturesScreen() }
 		composable<Screen.RedPill> { RedPillScreen() }
 		composable<Screen.BluePill> { BluePillScreen() }
 		composable<Screen.Pill>(

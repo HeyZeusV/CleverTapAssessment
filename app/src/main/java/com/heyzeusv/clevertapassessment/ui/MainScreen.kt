@@ -33,7 +33,6 @@ import org.koin.androidx.compose.koinViewModel
 @Composable
 fun MainScreen(mainVM: FeaturesViewModel = koinViewModel()) {
 	val cleverTapId by mainVM.cleverTapId.collectAsState()
-	val inboxInitialized by mainVM.inboxInitialized.collectAsState()
 	val remoteConfig by mainVM.remoteConfig.collectAsState()
 
 	var productId by remember { mutableStateOf("1") }
@@ -175,7 +174,7 @@ fun MainScreen(mainVM: FeaturesViewModel = koinViewModel()) {
 				}
 			}
 			Button(
-				onClick = { if (inboxInitialized) { mainVM.showAppInbox() } }
+				onClick = { mainVM.showAppInbox() }
 			) {
 				Text("Show App Inbox")
 			}

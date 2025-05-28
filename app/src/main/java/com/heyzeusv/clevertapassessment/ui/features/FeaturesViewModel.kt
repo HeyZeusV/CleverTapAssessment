@@ -1,15 +1,11 @@
 package com.heyzeusv.clevertapassessment.ui.features
 
 import android.util.Log
-import androidx.core.bundle.Bundle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.clevertap.android.sdk.CTInboxListener
 import com.clevertap.android.sdk.CleverTapAPI
-import com.clevertap.android.sdk.InAppNotificationButtonListener
 import com.clevertap.android.sdk.variables.callbacks.VariablesChangedCallback
 import com.heyzeusv.clevertapassessment.util.RemoteConfigValues
-import com.heyzeusv.clevertapassessment.util.Screen
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -29,15 +25,6 @@ class FeaturesViewModel(private val cleverTapAPI: CleverTapAPI) : ViewModel() {
 	// Used to display switching between test users
 	private val _cleverTapId = MutableStateFlow(cleverTapAPI.cleverTapID)
 	val cleverTapId: StateFlow<String> get() = _cleverTapId.asStateFlow()
-
-	// Used to determine which pill screen to navigate to
-	private val _pillSelection = MutableStateFlow<Screen>(Screen.Features)
-	val pillSelection: StateFlow<Screen> get() = _pillSelection.asStateFlow()
-
-	// Used to check if App Inbox is initialized before trying to show it
-	private val _inboxInitialized = MutableStateFlow(false)
-	val inboxInitialized: StateFlow<Boolean> get() = _inboxInitialized.asStateFlow()
-	fun updateInboxInitialized(value: Boolean) { _inboxInitialized.value = value }
 
 	// Retrieves most Remote Config values
 	val remoteConfig: StateFlow<RemoteConfigValues> = callbackFlow {
@@ -75,44 +62,6 @@ class FeaturesViewModel(private val cleverTapAPI: CleverTapAPI) : ViewModel() {
 	fun askPushNotificationPermission() {
 		if (!cleverTapAPI.isPushPermissionGranted) {
 			cleverTapAPI.promptForPushPermission(true)
-		}
-	}
-
-	// In-App set up
-	fun setInAppNotificationButtonListener(listener: InAppNotificationButtonListener) {
-		cleverTapAPI.setInAppNotificationButtonListener(listener)
-	}
-
-	// App Inbox set up
-	fun setCTNotificationInboxListener(listener: CTInboxListener) {
-		cleverTapAPI.ctNotificationInboxListener = listener
-		cleverTapAPI.initializeInbox()
-	}
-
-	/**
-	 *	Due to Android 12 update, have to manually handle push notification actions when Activity is
-	 *	in Activity stack. Afterwards, pass call to action value (if any) for further processing.
-	 */
-	fun handleIntent(extras: Bundle?) {
-		Log.i(LOG_TAG, "handleIntent called")
-		cleverTapAPI.pushNotificationClickedEvent(extras)
-
-		extras?.let {
-			it.getString("wzrk_c2a")?.let { value ->
-				handleCallToAction(value)
-			}
-		}
-	}
-
-	/**
-	 * 	Update currently shown screen depending on passed [value].
-	 */
-	fun handleCallToAction(value: String) {
-		Log.i(LOG_TAG, "handleCallToAction - handle $value")
-		when (value) {
-			"Red Pill" -> _pillSelection.value = Screen.RedPill
-			"Blue Pill" -> _pillSelection.value = Screen.BluePill
-			else -> { }
 		}
 	}
 
