@@ -123,17 +123,27 @@ class MainViewModel(private val cleverTapAPI: CleverTapAPI) : ViewModel() {
 		if (!cleverTapAPI.isPushPermissionGranted) {
 			cleverTapAPI.promptForPushPermission(true)
 		} else {
-			val profileUpdate = mapOf(
-				"Name" to identity,
-				"Identity" to identity,
-				"Email" to "$identity@gmail.com",
-				"DOB" to Date(),
-				"MyStuff" to listOf("Random", "Stuff"),
-			)
+			viewModelScope.launch {
+				val profileUpdate = mapOf(
+					"Name" to identity,
+					"Identity" to identity,
+					"Email" to "$identity@gmail.com",
+					"DOB" to Date(),
+					"MyStuff" to listOf("Random", "Stuff"),
+				)
 
-			Log.i(LOG_TAG, "createAccount - create account with properties: $profileUpdate")
+				Log.i(LOG_TAG, "createAccount - create account with properties: $profileUpdate")
 
-			cleverTapAPI.onUserLogin(profileUpdate)
+				// Used to check if user has changed by difference in CleverTap ids.
+				val currentId = _cleverTapId.value
+				cleverTapAPI.onUserLogin(profileUpdate)
+				// Logging in is not instant, so add delay of 1 second between checks.
+				while (currentId == cleverTapAPI.cleverTapID) {
+					_cleverTapId.value = "Loading"
+					delay(1000)
+				}
+				_cleverTapId.value = cleverTapAPI.cleverTapID
+			}
 		}
 	}
 

@@ -11,4 +11,6 @@ sealed class Screen {
 	data object BluePill : Screen()
 	@Serializable
 	data class Pill(val pill: String) : Screen()
+	@Serializable
+	data object EventForm : Screen()
 }

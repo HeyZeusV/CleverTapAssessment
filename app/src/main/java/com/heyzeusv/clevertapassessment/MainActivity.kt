@@ -128,5 +128,6 @@ fun CleverTapAssessmentApp(
 				else -> PillScreen(BLUE)
 			}
 		}
+		composable<Screen.EventForm> { }
 	}
 }

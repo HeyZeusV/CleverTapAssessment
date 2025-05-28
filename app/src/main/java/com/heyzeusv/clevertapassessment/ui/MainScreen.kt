@@ -36,7 +36,6 @@ fun MainScreen(mainVM: MainViewModel = koinViewModel()) {
 	val inboxInitialized by mainVM.inboxInitialized.collectAsState()
 	val remoteConfig by mainVM.remoteConfig.collectAsState()
 
-	var identity by remember { mutableStateOf("") }
 	var productId by remember { mutableStateOf("1") }
 	var productName by remember { mutableStateOf("CleverTap") }
 	var emailId by remember { mutableStateOf("jesus") }
@@ -53,52 +52,11 @@ fun MainScreen(mainVM: MainViewModel = koinViewModel()) {
 			verticalArrangement = Arrangement.spacedBy(8.dp),
 			horizontalAlignment = Alignment.CenterHorizontally,
 		) {
-			Text(
-				text = "Current AccountId:\n$cleverTapId",
-				textAlign = TextAlign.Center,
+			CreateLoginForm(
+				cleverTapId = cleverTapId,
+				createOnClick = mainVM::createAccountWithIdentity,
+				loginOnClick = mainVM::logIntoAccountWithIdentity,
 			)
-			OutlinedTextField(
-				value = identity,
-				onValueChange = { identity = it },
-				modifier = Modifier.fillMaxWidth(),
-				label = { Text("Identity") },
-			)
-			Row(
-				modifier = Modifier.fillMaxWidth(),
-				horizontalArrangement = Arrangement.spacedBy(8.dp),
-				verticalAlignment = Alignment.CenterVertically,
-			) {
-				Button(
-					onClick = { mainVM.createAccountWithIdentity(identity) },
-					modifier = Modifier.weight(1f),
-				) {
-					Text(
-						text = "Create Account With Identity",
-						textAlign = TextAlign.Center,
-					)
-				}
-				Button(
-					onClick = { mainVM.logIntoAccountWithIdentity(identity) },
-					modifier = Modifier.weight(1f),
-				) {
-					Text(
-						text = "Log Into Account With Identity",
-						textAlign = TextAlign.Center,
-					)
-				}
-//				Button(
-//					onClick = { mainVM.logIntoAccountWithIdentity("TestUserOne") },
-//					enabled = cleverTapId == "__49260b0655ff41fea8673cd49857805d",
-//				) {
-//					Text("Log into Test User One")
-//				}
-//				Button(
-//					onClick = { mainVM.logIntoAccountWithIdentity("TestUserTwo") },
-//					enabled = cleverTapId == "__7b5d4f0e434546f59ff23324b37bd730",
-//				) {
-//					Text("Log into Test User Two")
-//				}
-			}
 			Button(
 				onClick = { mainVM.updateMyStuff() },
 				enabled = cleverTapId != "Loading",
