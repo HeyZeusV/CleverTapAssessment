@@ -1,7 +1,8 @@
 [versions]
 agp = "8.8.0"
 appcompat = "1.7.0"
-clevertap = "7.3.1"
+clevertap = "7.4.0"
+clevertapPushTemplates = "1.4.0"
 glide = "4.12.0"
 kotlin = "2.0.0"
 coreKtx = "1.15.0"
@@ -27,6 +28,7 @@ androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = 
 androidx-recyclerview = { module = "androidx.recyclerview:recyclerview", version.ref = "recyclerview" }
 androidx-viewpager = { module = "androidx.viewpager:viewpager", version.ref = "viewpager" }
 clevertap-android-sdk = { module = "com.clevertap.android:clevertap-android-sdk", version.ref = "clevertap" }
+clevertap-push-templates = { module = "com.clevertap.android:push-templates", version.ref = "clevertapPushTemplates" }
 glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }

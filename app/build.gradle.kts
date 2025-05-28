@@ -72,6 +72,7 @@ dependencies {
 
 	// CleverTap
 	implementation(libs.clevertap.android.sdk)
+	implementation(libs.clevertap.push.templates)
 
 	// CleverTap App Inbox
 	implementation(libs.androidx.appcompat)

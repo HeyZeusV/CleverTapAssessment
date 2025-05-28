@@ -17,15 +17,15 @@ class MainViewModel(private val cleverTapAPI: CleverTapAPI) : ViewModel() {
 	private val _navigateTo = MutableStateFlow<Screen?>(null)
 	val navigateTo: StateFlow<Screen?> get() = _navigateTo.asStateFlow()
 
-	// In-App set up
-	fun setInAppNotificationButtonListener(listener: InAppNotificationButtonListener) {
-		cleverTapAPI.setInAppNotificationButtonListener(listener)
-	}
-
-	// App Inbox set up
-	fun setCTNotificationInboxListener(listener: CTInboxListener) {
-		cleverTapAPI.ctNotificationInboxListener = listener
-		cleverTapAPI.initializeInbox()
+	fun setUpCleverTap(
+		inAppListener: InAppNotificationButtonListener,
+		inboxListener: CTInboxListener,
+	) {
+		cleverTapAPI.apply {
+			setInAppNotificationButtonListener(inAppListener)
+			cleverTapAPI.ctNotificationInboxListener = inboxListener
+			cleverTapAPI.initializeInbox()
+		}
 	}
 
 	// invokes Android permission dialog

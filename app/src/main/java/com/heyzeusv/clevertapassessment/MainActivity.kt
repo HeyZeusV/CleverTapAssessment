@@ -42,8 +42,7 @@ class MainActivity : ComponentActivity(), InAppNotificationButtonListener, CTInb
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
 
-		mainVM.setInAppNotificationButtonListener(this)
-		mainVM.setCTNotificationInboxListener(this)
+		mainVM.setUpCleverTap(this, this)
 		enableEdgeToEdge()
 		setContent {
 			CleverTapAssessmentTheme {
