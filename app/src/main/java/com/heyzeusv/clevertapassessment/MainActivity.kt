@@ -21,6 +21,7 @@ import com.clevertap.android.sdk.CTInboxListener
 import com.clevertap.android.sdk.InAppNotificationButtonListener
 import com.heyzeusv.clevertapassessment.ui.MainScreen
 import com.heyzeusv.clevertapassessment.ui.MainViewModel
+import com.heyzeusv.clevertapassessment.ui.eventform.EventFormScreen
 import com.heyzeusv.clevertapassessment.ui.features.BluePillScreen
 import com.heyzeusv.clevertapassessment.ui.features.FeaturesScreen
 import com.heyzeusv.clevertapassessment.ui.features.PillScreen
@@ -138,6 +139,6 @@ fun CleverTapAssessmentApp(
 				else -> PillScreen(BLUE)
 			}
 		}
-		composable<Screen.EventForm> { }
+		composable<Screen.EventForm> { EventFormScreen() }
 	}
 }
