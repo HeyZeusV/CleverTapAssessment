@@ -20,6 +20,7 @@ import com.heyzeusv.clevertapassessment.R
 fun MainScreen(
 	featuresOnClick: () -> Unit,
 	eventFormOnClick: () -> Unit,
+	pushTemplatesOnClick: () -> Unit,
 ) {
 	Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
 		Column(
@@ -39,6 +40,9 @@ fun MainScreen(
 			}
 			Button(onClick = eventFormOnClick) {
 				Text("Event Form")
+			}
+			Button(onClick = pushTemplatesOnClick) {
+				Text("Push Templates")
 			}
 		}
 	}

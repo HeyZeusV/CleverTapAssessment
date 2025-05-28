@@ -26,6 +26,7 @@ import com.heyzeusv.clevertapassessment.ui.features.BluePillScreen
 import com.heyzeusv.clevertapassessment.ui.features.FeaturesScreen
 import com.heyzeusv.clevertapassessment.ui.features.PillScreen
 import com.heyzeusv.clevertapassessment.ui.features.RedPillScreen
+import com.heyzeusv.clevertapassessment.ui.push.PushTemplatesScreen
 import com.heyzeusv.clevertapassessment.ui.theme.CleverTapAssessmentTheme
 import com.heyzeusv.clevertapassessment.util.NotificationUtils
 import com.heyzeusv.clevertapassessment.util.Pill.BLUE
@@ -122,6 +123,7 @@ fun CleverTapAssessmentApp(
 			MainScreen(
 				featuresOnClick = { navController.navigate(Screen.Features) },
 				eventFormOnClick = { navController.navigate(Screen.EventForm) },
+				pushTemplatesOnClick = { navController.navigate(Screen.PushTemplates) },
 			)
 		}
 		composable<Screen.Features> { FeaturesScreen() }
@@ -139,5 +141,6 @@ fun CleverTapAssessmentApp(
 			}
 		}
 		composable<Screen.EventForm> { EventFormScreen() }
+		composable<Screen.PushTemplates> { PushTemplatesScreen() }
 	}
 }

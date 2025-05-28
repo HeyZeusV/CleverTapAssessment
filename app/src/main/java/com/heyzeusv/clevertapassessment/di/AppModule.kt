@@ -7,6 +7,7 @@ import com.heyzeusv.clevertapassessment.BuildConfig
 import com.heyzeusv.clevertapassessment.ui.MainViewModel
 import com.heyzeusv.clevertapassessment.ui.eventform.EventFormViewModel
 import com.heyzeusv.clevertapassessment.ui.features.FeaturesViewModel
+import com.heyzeusv.clevertapassessment.ui.push.PushViewModel
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.module.dsl.viewModelOf
 import org.koin.dsl.module
@@ -25,4 +26,5 @@ val appModule = module {
 	viewModelOf(::MainViewModel)
 	viewModelOf(::FeaturesViewModel)
 	viewModelOf(::EventFormViewModel)
+	viewModelOf(::PushViewModel)
 }
