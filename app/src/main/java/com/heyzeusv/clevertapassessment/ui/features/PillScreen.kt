@@ -1,4 +1,4 @@
-package com.heyzeusv.clevertapassessment.ui
+package com.heyzeusv.clevertapassessment.ui.features
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize

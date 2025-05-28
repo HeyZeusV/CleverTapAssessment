@@ -1,15 +1,11 @@
-package com.heyzeusv.clevertapassessment
+package com.heyzeusv.clevertapassessment.ui.features
 
 import android.util.Log
-import androidx.core.bundle.Bundle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.clevertap.android.sdk.CTInboxListener
 import com.clevertap.android.sdk.CleverTapAPI
-import com.clevertap.android.sdk.InAppNotificationButtonListener
 import com.clevertap.android.sdk.variables.callbacks.VariablesChangedCallback
 import com.heyzeusv.clevertapassessment.util.RemoteConfigValues
-import com.heyzeusv.clevertapassessment.util.Screen
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -24,20 +20,11 @@ import kotlin.math.roundToInt
 import kotlin.random.Random
 
 private const val LOG_TAG = "CleverTapAssessment_MainViewModel"
-class MainViewModel(private val cleverTapAPI: CleverTapAPI) : ViewModel() {
+class FeaturesViewModel(private val cleverTapAPI: CleverTapAPI) : ViewModel() {
 
 	// Used to display switching between test users
 	private val _cleverTapId = MutableStateFlow(cleverTapAPI.cleverTapID)
 	val cleverTapId: StateFlow<String> get() = _cleverTapId.asStateFlow()
-
-	// Used to determine which pill screen to navigate to
-	private val _pillSelection = MutableStateFlow<Screen>(Screen.Home)
-	val pillSelection: StateFlow<Screen> get() = _pillSelection.asStateFlow()
-
-	// Used to check if App Inbox is initialized before trying to show it
-	private val _inboxInitialized = MutableStateFlow(false)
-	val inboxInitialized: StateFlow<Boolean> get() = _inboxInitialized.asStateFlow()
-	fun updateInboxInitialized(value: Boolean) { _inboxInitialized.value = value }
 
 	// Retrieves most Remote Config values
 	val remoteConfig: StateFlow<RemoteConfigValues> = callbackFlow {
@@ -67,54 +54,9 @@ class MainViewModel(private val cleverTapAPI: CleverTapAPI) : ViewModel() {
 		}
 	}.stateIn(
 		scope = viewModelScope,
-		started = SharingStarted.WhileSubscribed(),
+		started = SharingStarted.Companion.WhileSubscribed(),
 		initialValue = RemoteConfigValues()
 	)
-
-	// invokes Android permission dialog
-	fun askPushNotificationPermission() {
-		if (!cleverTapAPI.isPushPermissionGranted) {
-			cleverTapAPI.promptForPushPermission(true)
-		}
-	}
-
-	// In-App set up
-	fun setInAppNotificationButtonListener(listener: InAppNotificationButtonListener) {
-		cleverTapAPI.setInAppNotificationButtonListener(listener)
-	}
-
-	// App Inbox set up
-	fun setCTNotificationInboxListener(listener: CTInboxListener) {
-		cleverTapAPI.ctNotificationInboxListener = listener
-		cleverTapAPI.initializeInbox()
-	}
-
-	/**
-	 *	Due to Android 12 update, have to manually handle push notification actions when Activity is
-	 *	in Activity stack. Afterwards, pass call to action value (if any) for further processing.
-	 */
-	fun handleIntent(extras: Bundle?) {
-		Log.i(LOG_TAG, "handleIntent called")
-		cleverTapAPI.pushNotificationClickedEvent(extras)
-
-		extras?.let {
-			it.getString("wzrk_c2a")?.let { value ->
-				handleCallToAction(value)
-			}
-		}
-	}
-
-	/**
-	 * 	Update currently shown screen depending on passed [value].
-	 */
-	fun handleCallToAction(value: String) {
-		Log.i(LOG_TAG, "handleCallToAction - handle $value")
-		when (value) {
-			"Red Pill" -> _pillSelection.value = Screen.RedPill
-			"Blue Pill" -> _pillSelection.value = Screen.BluePill
-			else -> { }
-		}
-	}
 
 	/**
 	 * 	Creates new account with hard coded values.
@@ -123,17 +65,27 @@ class MainViewModel(private val cleverTapAPI: CleverTapAPI) : ViewModel() {
 		if (!cleverTapAPI.isPushPermissionGranted) {
 			cleverTapAPI.promptForPushPermission(true)
 		} else {
-			val profileUpdate = mapOf(
-				"Name" to identity,
-				"Identity" to identity,
-				"Email" to "$identity@gmail.com",
-				"DOB" to Date(),
-				"MyStuff" to listOf("Random", "Stuff"),
-			)
+			viewModelScope.launch {
+				val profileUpdate = mapOf(
+					"Name" to identity,
+					"Identity" to identity,
+					"Email" to "$identity@gmail.com",
+					"DOB" to Date(),
+					"MyStuff" to listOf("Random", "Stuff"),
+				)
 
-			Log.i(LOG_TAG, "createAccount - create account with properties: $profileUpdate")
+				Log.i(LOG_TAG, "createAccount - create account with properties: $profileUpdate")
 
-			cleverTapAPI.onUserLogin(profileUpdate)
+				// Used to check if user has changed by difference in CleverTap ids.
+				val currentId = _cleverTapId.value
+				cleverTapAPI.onUserLogin(profileUpdate)
+				// Logging in is not instant, so add delay of 1 second between checks.
+				while (currentId == cleverTapAPI.cleverTapID) {
+					_cleverTapId.value = "Loading"
+					delay(1000)
+				}
+				_cleverTapId.value = cleverTapAPI.cleverTapID
+			}
 		}
 	}
 
@@ -163,7 +115,7 @@ class MainViewModel(private val cleverTapAPI: CleverTapAPI) : ViewModel() {
 	 */
 	fun updateMyStuff() {
 		val stuff = mutableListOf<String>()
-		repeat(Random.nextInt(0, 5)) {
+		repeat(Random.Default.nextInt(0, 5)) {
 			stuff.add(randomString())
 		}
 
@@ -183,7 +135,7 @@ class MainViewModel(private val cleverTapAPI: CleverTapAPI) : ViewModel() {
 	 */
 	fun productViewedEvent(productId: String, productName: String, emailId: String) {
 		val checkedId = if (productId.isBlank()) 1 else productId.toInt()
-		val productPrice = (Random.nextDouble(1.00, 100.00) * 100.0).roundToInt() / 100.0
+		val productPrice = (Random.Default.nextDouble(1.00, 100.00) * 100.0).roundToInt() / 100.0
 		val productViewedAction = mapOf(
 			"Product Id" to checkedId,
 			"Product Name" to productName,
@@ -265,7 +217,7 @@ class MainViewModel(private val cleverTapAPI: CleverTapAPI) : ViewModel() {
 		val charPool: List<Char> = ('a'..'z') + ('A'..'Z') + ('0'..'9')
 
 		return (1..10)
-			.map { Random.nextInt(0, charPool.size).let { charPool[it] } }
+			.map { Random.Default.nextInt(0, charPool.size).let { charPool[it] } }
 			.joinToString("")
 	}
 

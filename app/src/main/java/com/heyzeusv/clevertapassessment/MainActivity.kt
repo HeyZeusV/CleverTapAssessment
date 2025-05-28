@@ -19,10 +19,13 @@ import androidx.navigation.navDeepLink
 import androidx.navigation.toRoute
 import com.clevertap.android.sdk.CTInboxListener
 import com.clevertap.android.sdk.InAppNotificationButtonListener
-import com.heyzeusv.clevertapassessment.ui.BluePillScreen
 import com.heyzeusv.clevertapassessment.ui.MainScreen
-import com.heyzeusv.clevertapassessment.ui.PillScreen
-import com.heyzeusv.clevertapassessment.ui.RedPillScreen
+import com.heyzeusv.clevertapassessment.ui.MainViewModel
+import com.heyzeusv.clevertapassessment.ui.eventform.EventFormScreen
+import com.heyzeusv.clevertapassessment.ui.features.BluePillScreen
+import com.heyzeusv.clevertapassessment.ui.features.FeaturesScreen
+import com.heyzeusv.clevertapassessment.ui.features.PillScreen
+import com.heyzeusv.clevertapassessment.ui.features.RedPillScreen
 import com.heyzeusv.clevertapassessment.ui.theme.CleverTapAssessmentTheme
 import com.heyzeusv.clevertapassessment.util.NotificationUtils
 import com.heyzeusv.clevertapassessment.util.Pill.BLUE
@@ -87,7 +90,7 @@ class MainActivity : ComponentActivity(), InAppNotificationButtonListener, CTInb
 	 * 	Called if App Inbox was successfully initialized.
 	 */
 	override fun inboxDidInitialize() {
-		mainVM.updateInboxInitialized(true)
+		Log.i("CleverTapAssessment", "inboxDidInitialize() called")
 	}
 
 	/**
@@ -103,18 +106,26 @@ fun CleverTapAssessmentApp(
 	mainVM: MainViewModel,
 	navController: NavHostController,
 ) {
-	val pillSelection by mainVM.pillSelection.collectAsState()
+	val navigateTo by mainVM.navigateTo.collectAsState()
 
-	LaunchedEffect(pillSelection) {
-		if (pillSelection != Screen.Home) {
-			navController.navigate(pillSelection)
+
+	LaunchedEffect(navigateTo) {
+		if (navigateTo != null) {
+			navController.navigate(navigateTo!!)
 		}
 	}
+	LaunchedEffect(Unit) { mainVM.askPushNotificationPermission() }
 	NavHost(
 		navController = navController,
-		startDestination = Screen.Home,
+		startDestination = Screen.Main,
 	) {
-		composable<Screen.Home> { MainScreen(mainVM) }
+		composable<Screen.Main> {
+			MainScreen(
+				featuresOnClick = { navController.navigate(Screen.Features) },
+				eventFormOnClick = { navController.navigate(Screen.EventForm) },
+			)
+		}
+		composable<Screen.Features> { FeaturesScreen() }
 		composable<Screen.RedPill> { RedPillScreen() }
 		composable<Screen.BluePill> { BluePillScreen() }
 		composable<Screen.Pill>(
@@ -128,5 +139,6 @@ fun CleverTapAssessmentApp(
 				else -> PillScreen(BLUE)
 			}
 		}
+		composable<Screen.EventForm> { EventFormScreen() }
 	}
 }
