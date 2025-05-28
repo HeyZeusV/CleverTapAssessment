@@ -80,7 +80,7 @@ class EventFormViewModel(private val cleverTapAPI: CleverTapAPI) : ViewModel() {
 	fun pushEvent() {
 		val customEventProperties = mutableMapOf<String, Any>()
 		_eventProperties.value.forEach {
-			if (!it.first.isNotBlank() && !it.second.isNotBlank())
+			if (it.first.isNotBlank() && it.second.isNotBlank())
 			customEventProperties.put(it.first, it.second)
 		}
 		cleverTapAPI.pushEvent(eventName.value, customEventProperties)
