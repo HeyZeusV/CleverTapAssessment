@@ -6,6 +6,6 @@ import com.clevertap.android.sdk.CleverTapAPI
 class PushViewModel(private val cleverTapAPI: CleverTapAPI) : ViewModel() {
 
 	fun timerNotification() {
-		cleverTapAPI.pushEvent("Timer Notification")
+		cleverTapAPI.pushEvent("Push Timer Notification")
 	}
 }

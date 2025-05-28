@@ -108,7 +108,6 @@ fun CleverTapAssessmentApp(
 ) {
 	val navigateTo by mainVM.navigateTo.collectAsState()
 
-
 	LaunchedEffect(navigateTo) {
 		if (navigateTo != null) {
 			navController.navigate(navigateTo!!)
