@@ -28,6 +28,13 @@ class MainViewModel(private val cleverTapAPI: CleverTapAPI) : ViewModel() {
 		cleverTapAPI.initializeInbox()
 	}
 
+	// invokes Android permission dialog
+	fun askPushNotificationPermission() {
+		if (!cleverTapAPI.isPushPermissionGranted) {
+			cleverTapAPI.promptForPushPermission(true)
+		}
+	}
+
 	/**
 	 *	Due to Android 12 update, have to manually handle push notification actions when Activity is
 	 *	in Activity stack. Afterwards, pass call to action value (if any) for further processing.

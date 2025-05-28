@@ -16,7 +16,6 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -38,8 +37,6 @@ fun FeaturesScreen(featuresVm: FeaturesViewModel = koinViewModel()) {
 	var productId by remember { mutableStateOf("1") }
 	var productName by remember { mutableStateOf("CleverTap") }
 	var emailId by remember { mutableStateOf("jesus") }
-
-	LaunchedEffect(Unit) { featuresVm.askPushNotificationPermission() }
 
 	Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
 		Column(

@@ -58,13 +58,6 @@ class FeaturesViewModel(private val cleverTapAPI: CleverTapAPI) : ViewModel() {
 		initialValue = RemoteConfigValues()
 	)
 
-	// invokes Android permission dialog
-	fun askPushNotificationPermission() {
-		if (!cleverTapAPI.isPushPermissionGranted) {
-			cleverTapAPI.promptForPushPermission(true)
-		}
-	}
-
 	/**
 	 * 	Creates new account with hard coded values.
 	 */

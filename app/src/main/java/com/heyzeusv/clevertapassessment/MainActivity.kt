@@ -19,6 +19,7 @@ import androidx.navigation.navDeepLink
 import androidx.navigation.toRoute
 import com.clevertap.android.sdk.CTInboxListener
 import com.clevertap.android.sdk.InAppNotificationButtonListener
+import com.heyzeusv.clevertapassessment.ui.MainScreen
 import com.heyzeusv.clevertapassessment.ui.MainViewModel
 import com.heyzeusv.clevertapassessment.ui.features.BluePillScreen
 import com.heyzeusv.clevertapassessment.ui.features.FeaturesScreen
@@ -106,15 +107,23 @@ fun CleverTapAssessmentApp(
 ) {
 	val navigateTo by mainVM.navigateTo.collectAsState()
 
+
 	LaunchedEffect(navigateTo) {
 		if (navigateTo != null) {
 			navController.navigate(navigateTo!!)
 		}
 	}
+	LaunchedEffect(Unit) { mainVM.askPushNotificationPermission() }
 	NavHost(
 		navController = navController,
-		startDestination = Screen.Features,
+		startDestination = Screen.Main,
 	) {
+		composable<Screen.Main> {
+			MainScreen(
+				featuresOnClick = { navController.navigate(Screen.Features) },
+				eventFormOnClick = { navController.navigate(Screen.EventForm) },
+			)
+		}
 		composable<Screen.Features> { FeaturesScreen() }
 		composable<Screen.RedPill> { RedPillScreen() }
 		composable<Screen.BluePill> { BluePillScreen() }
