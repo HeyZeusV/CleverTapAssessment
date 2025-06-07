@@ -1,0 +1,86 @@
+{
+  "project_info": {
+    "project_number": "203402873045",
+    "project_id": "clevertap-assessment",
+    "storage_bucket": "clevertap-assessment.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:203402873045:android:a596984d5c2258bc5bba5c",
+        "android_client_info": {
+          "package_name": "com.CleverTap.CTExample"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC157L1pHZdHACwZpXTjS9Z7rlUAf0Vujg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:203402873045:android:f2caf44da45a820f5bba5c",
+        "android_client_info": {
+          "package_name": "com.heyzeusv.clevertapassessment"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC157L1pHZdHACwZpXTjS9Z7rlUAf0Vujg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:203402873045:android:9f97afd1f1e0e7555bba5c",
+        "android_client_info": {
+          "package_name": "com.heyzeusv.clevertapassessment.dev"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC157L1pHZdHACwZpXTjS9Z7rlUAf0Vujg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:203402873045:android:ae58a276288da3285bba5c",
+        "android_client_info": {
+          "package_name": "com.heyzeusvapps.ctunity"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC157L1pHZdHACwZpXTjS9Z7rlUAf0Vujg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

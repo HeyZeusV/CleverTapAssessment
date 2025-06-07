@@ -1,0 +1,29 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.clevertap.unity" >
+4
+5    <uses-sdk android:minSdkVersion="19" />
+6
+7    <application>
+7-->/Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/clevertap-android-wrapper.androidlib/src/main/AndroidManifest.xml:3:3-7:17
+8        <meta-data
+8-->/Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/clevertap-android-wrapper.androidlib/src/main/AndroidManifest.xml:4:5-88
+9            android:name="CLEVERTAP_ACCOUNT_ID"
+9-->/Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/clevertap-android-wrapper.androidlib/src/main/AndroidManifest.xml:4:16-51
+10            android:value="TEST-R78-KW5-K47Z" />
+10-->/Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/clevertap-android-wrapper.androidlib/src/main/AndroidManifest.xml:4:52-85
+11        <meta-data
+11-->/Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/clevertap-android-wrapper.androidlib/src/main/AndroidManifest.xml:5:5-78
+12            android:name="CLEVERTAP_TOKEN"
+12-->/Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/clevertap-android-wrapper.androidlib/src/main/AndroidManifest.xml:5:16-46
+13            android:value="TEST-503-ba2" />
+13-->/Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/clevertap-android-wrapper.androidlib/src/main/AndroidManifest.xml:5:47-75
+14        <meta-data
+14-->/Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/clevertap-android-wrapper.androidlib/src/main/AndroidManifest.xml:6:5-70
+15            android:name="CLEVERTAP_REGION"
+15-->/Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/clevertap-android-wrapper.androidlib/src/main/AndroidManifest.xml:6:16-47
+16            android:value="us1" />
+16-->/Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/clevertap-android-wrapper.androidlib/src/main/AndroidManifest.xml:6:48-67
+17    </application>
+18
+19</manifest>

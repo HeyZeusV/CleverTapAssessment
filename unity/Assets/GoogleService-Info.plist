@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyD3KDb3qPlFWk3S7--uU-Zgr4qZULkCV-A</string>
+	<key>GCM_SENDER_ID</key>
+	<string>203402873045</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.CleverTap.CTExample</string>
+	<key>PROJECT_ID</key>
+	<string>clevertap-assessment</string>
+	<key>STORAGE_BUCKET</key>
+	<string>clevertap-assessment.firebasestorage.app</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:203402873045:ios:d9ac94e8a6c7bc625bba5c</string>
+</dict>
+</plist>

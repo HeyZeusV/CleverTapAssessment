@@ -1,0 +1,761 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.heyzeusvapps.ctunity"
+4    android:installLocation="preferExternal"
+5    android:versionCode="1"
+6    android:versionName="1.0.0" >
+7
+8    <uses-sdk
+9        android:minSdkVersion="23"
+10        android:targetSdkVersion="35" />
+11
+12    <supports-screens
+12-->/Users/hey_zeus/Repos/CleverTapSamples/unity/android/launcher/src/main/AndroidManifest.xml:4:3-163
+13        android:anyDensity="true"
+13-->/Users/hey_zeus/Repos/CleverTapSamples/unity/android/launcher/src/main/AndroidManifest.xml:4:135-160
+14        android:largeScreens="true"
+14-->/Users/hey_zeus/Repos/CleverTapSamples/unity/android/launcher/src/main/AndroidManifest.xml:4:78-105
+15        android:normalScreens="true"
+15-->/Users/hey_zeus/Repos/CleverTapSamples/unity/android/launcher/src/main/AndroidManifest.xml:4:49-77
+16        android:smallScreens="true"
+16-->/Users/hey_zeus/Repos/CleverTapSamples/unity/android/launcher/src/main/AndroidManifest.xml:4:21-48
+17        android:xlargeScreens="true" />
+17-->/Users/hey_zeus/Repos/CleverTapSamples/unity/android/launcher/src/main/AndroidManifest.xml:4:106-134
+18
+19    <uses-permission android:name="android.permission.INTERNET" />
+19-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:10:5-67
+19-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:10:22-64
+20    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+20-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:11:5-79
+20-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:11:22-76
+21    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+21-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:12:5-82
+21-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:12:22-79
+22    <uses-permission android:name="android.permission.WAKE_LOCK" />
+22-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:13:5-68
+22-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:13:22-65
+23
+24    <uses-feature
+24-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:15:5-17:36
+25        android:name="android.hardware.touchscreen"
+25-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:16:9-52
+26        android:required="false" />
+26-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:17:9-33
+27    <uses-feature
+27-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:18:5-20:36
+28        android:name="android.hardware.touchscreen.multitouch"
+28-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:19:9-63
+29        android:required="false" />
+29-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:20:9-33
+30    <uses-feature
+30-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:21:5-23:36
+31        android:name="android.hardware.touchscreen.multitouch.distinct"
+31-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:22:9-72
+32        android:required="false" />
+32-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:23:9-33
+33    <uses-feature android:glEsVersion="0x00030000" />
+33-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:24:5-54
+33-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:24:19-51
+34    <uses-feature
+34-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:25:5-27:36
+35        android:name="android.hardware.vulkan.version"
+35-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:26:9-55
+36        android:required="false" />
+36-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:27:9-33
+37
+38    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+38-->[com.google.firebase:firebase-messaging:24.1.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/72cfcc3fd944d6b58f96d7074ba2b121/transformed/jetified-firebase-messaging-24.1.1/AndroidManifest.xml:23:5-77
+38-->[com.google.firebase:firebase-messaging:24.1.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/72cfcc3fd944d6b58f96d7074ba2b121/transformed/jetified-firebase-messaging-24.1.1/AndroidManifest.xml:23:22-74
+39    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
+39-->[com.google.android.gms:play-services-measurement:22.4.0] /Users/hey_zeus/.gradle/caches/8.12/transforms/e2d06392611519e875ab59284ec76b41/transformed/jetified-play-services-measurement-22.4.0/AndroidManifest.xml:26:5-110
+39-->[com.google.android.gms:play-services-measurement:22.4.0] /Users/hey_zeus/.gradle/caches/8.12/transforms/e2d06392611519e875ab59284ec76b41/transformed/jetified-play-services-measurement-22.4.0/AndroidManifest.xml:26:22-107
+40    <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
+40-->[com.google.android.gms:play-services-measurement-impl:22.4.0] /Users/hey_zeus/.gradle/caches/8.12/transforms/5405c622fe40926d0d9da02761f24c9a/transformed/jetified-play-services-measurement-impl-22.4.0/AndroidManifest.xml:27:5-79
+40-->[com.google.android.gms:play-services-measurement-impl:22.4.0] /Users/hey_zeus/.gradle/caches/8.12/transforms/5405c622fe40926d0d9da02761f24c9a/transformed/jetified-play-services-measurement-impl-22.4.0/AndroidManifest.xml:27:22-76
+41    <uses-permission android:name="android.permission.ACCESS_ADSERVICES_ATTRIBUTION" />
+41-->[com.google.android.gms:play-services-measurement-api:22.4.0] /Users/hey_zeus/.gradle/caches/8.12/transforms/f3a6c446fece81d6c7a49d9cdcd07c48/transformed/jetified-play-services-measurement-api-22.4.0/AndroidManifest.xml:26:5-88
+41-->[com.google.android.gms:play-services-measurement-api:22.4.0] /Users/hey_zeus/.gradle/caches/8.12/transforms/f3a6c446fece81d6c7a49d9cdcd07c48/transformed/jetified-play-services-measurement-api-22.4.0/AndroidManifest.xml:26:22-85
+42    <uses-permission android:name="android.permission.ACCESS_ADSERVICES_AD_ID" />
+42-->[com.google.android.gms:play-services-measurement-api:22.4.0] /Users/hey_zeus/.gradle/caches/8.12/transforms/f3a6c446fece81d6c7a49d9cdcd07c48/transformed/jetified-play-services-measurement-api-22.4.0/AndroidManifest.xml:27:5-82
+42-->[com.google.android.gms:play-services-measurement-api:22.4.0] /Users/hey_zeus/.gradle/caches/8.12/transforms/f3a6c446fece81d6c7a49d9cdcd07c48/transformed/jetified-play-services-measurement-api-22.4.0/AndroidManifest.xml:27:22-79
+43
+44    <permission
+44-->[com.google.firebase:firebase-messaging-unity:12.9.0] /Users/hey_zeus/.gradle/caches/8.12/transforms/67d1b46218f7f0d0081608af344f7b4c/transformed/jetified-firebase-messaging-unity-12.9.0/AndroidManifest.xml:11:3-13:45
+45        android:name="com.heyzeusvapps.ctunity.permission.C2D_MESSAGE"
+45-->[com.google.firebase:firebase-messaging-unity:12.9.0] /Users/hey_zeus/.gradle/caches/8.12/transforms/67d1b46218f7f0d0081608af344f7b4c/transformed/jetified-firebase-messaging-unity-12.9.0/AndroidManifest.xml:12:7-61
+46        android:protectionLevel="signature" />
+46-->[com.google.firebase:firebase-messaging-unity:12.9.0] /Users/hey_zeus/.gradle/caches/8.12/transforms/67d1b46218f7f0d0081608af344f7b4c/transformed/jetified-firebase-messaging-unity-12.9.0/AndroidManifest.xml:13:7-42
+47
+48    <uses-permission android:name="com.heyzeusvapps.ctunity.permission.C2D_MESSAGE" />
+48-->[com.google.firebase:firebase-messaging-unity:12.9.0] /Users/hey_zeus/.gradle/caches/8.12/transforms/67d1b46218f7f0d0081608af344f7b4c/transformed/jetified-firebase-messaging-unity-12.9.0/AndroidManifest.xml:14:3-15:64
+48-->[com.google.firebase:firebase-messaging-unity:12.9.0] /Users/hey_zeus/.gradle/caches/8.12/transforms/67d1b46218f7f0d0081608af344f7b4c/transformed/jetified-firebase-messaging-unity-12.9.0/AndroidManifest.xml:15:7-61
+49    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+49-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:27:5-81
+49-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:27:22-78
+50    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+50-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:28:5-77
+50-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:28:22-74
+51
+52    <permission
+52-->[androidx.core:core:1.9.0] /Users/hey_zeus/.gradle/caches/8.12/transforms/6325cad999e7e25eaa9301d33937688b/transformed/core-1.9.0/AndroidManifest.xml:22:5-24:47
+53        android:name="com.heyzeusvapps.ctunity.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+53-->[androidx.core:core:1.9.0] /Users/hey_zeus/.gradle/caches/8.12/transforms/6325cad999e7e25eaa9301d33937688b/transformed/core-1.9.0/AndroidManifest.xml:23:9-81
+54        android:protectionLevel="signature" />
+54-->[androidx.core:core:1.9.0] /Users/hey_zeus/.gradle/caches/8.12/transforms/6325cad999e7e25eaa9301d33937688b/transformed/core-1.9.0/AndroidManifest.xml:24:9-44
+55
+56    <uses-permission android:name="com.heyzeusvapps.ctunity.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+56-->[androidx.core:core:1.9.0] /Users/hey_zeus/.gradle/caches/8.12/transforms/6325cad999e7e25eaa9301d33937688b/transformed/core-1.9.0/AndroidManifest.xml:26:5-97
+56-->[androidx.core:core:1.9.0] /Users/hey_zeus/.gradle/caches/8.12/transforms/6325cad999e7e25eaa9301d33937688b/transformed/core-1.9.0/AndroidManifest.xml:26:22-94
+57
+58    <application
+58-->/Users/hey_zeus/Repos/CleverTapSamples/unity/android/launcher/src/main/AndroidManifest.xml:3:3-83
+59        android:name="com.clevertap.unity.CleverTapUnityApplication"
+59-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:37:9-69
+60        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+60-->[androidx.core:core:1.9.0] /Users/hey_zeus/.gradle/caches/8.12/transforms/6325cad999e7e25eaa9301d33937688b/transformed/core-1.9.0/AndroidManifest.xml:28:18-86
+61        android:debuggable="true"
+61-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:38:9-34
+62        android:enableOnBackInvokedCallback="true"
+62-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:39:9-51
+63        android:extractNativeLibs="true"
+64        android:icon="@mipmap/app_icon"
+64-->/Users/hey_zeus/Repos/CleverTapSamples/unity/android/launcher/src/main/AndroidManifest.xml:3:49-80
+65        android:isGame="true"
+65-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:42:9-30
+66        android:label="@string/app_name"
+66-->/Users/hey_zeus/Repos/CleverTapSamples/unity/android/launcher/src/main/AndroidManifest.xml:3:16-48
+67        android:testOnly="true"
+68        android:theme="@style/UnityThemeSelector" >
+68-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:44:9-50
+69        <service
+69-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:45:9-51:19
+70            android:name="com.clevertap.android.sdk.pushnotification.fcm.FcmMessageListenerService"
+70-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:46:13-100
+71            android:exported="true" >
+71-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:47:13-36
+72            <intent-filter>
+72-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:48:13-50:29
+73                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+73-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:49:17-78
+73-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:49:25-75
+74            </intent-filter>
+75        </service>
+76        <service
+76-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:52:9-58:19
+77            android:name="com.clevertap.android.sdk.pushnotification.CTNotificationIntentService"
+77-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:53:13-98
+78            android:exported="false" >
+78-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:54:13-37
+79            <intent-filter>
+79-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:55:13-57:29
+80                <action android:name="com.clevertap.PUSH_EVENT" />
+80-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:56:17-67
+80-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:56:25-64
+81            </intent-filter>
+82        </service>
+83
+84        <meta-data
+84-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:60:9-62:33
+85            android:name="unity.splash-mode"
+85-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:61:13-45
+86            android:value="0" />
+86-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:62:13-30
+87        <meta-data
+87-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:63:9-65:36
+88            android:name="unity.splash-enable"
+88-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:64:13-47
+89            android:value="True" />
+89-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:65:13-33
+90        <meta-data
+90-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:66:9-68:36
+91            android:name="unity.launch-fullscreen"
+91-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:67:13-51
+92            android:value="True" />
+92-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:68:13-33
+93        <meta-data
+93-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:69:9-71:36
+94            android:name="unity.render-outside-safearea"
+94-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:70:13-57
+95            android:value="True" />
+95-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:71:13-33
+96        <meta-data
+96-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:72:9-74:50
+97            android:name="notch.config"
+97-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:73:13-40
+98            android:value="portrait|landscape" />
+98-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:74:13-47
+99        <meta-data
+99-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:75:9-77:36
+100            android:name="unity.auto-report-fully-drawn"
+100-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:76:13-57
+101            android:value="true" />
+101-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:77:13-33
+102
+103        <activity
+103-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:79:9-101:20
+104            android:name="com.clevertap.unity.CleverTapOverrideActivity"
+104-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:80:13-73
+105            android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|uiMode|screenSize|smallestScreenSize|fontScale|layoutDirection|density"
+105-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:81:13-194
+106            android:exported="true"
+106-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:82:13-36
+107            android:hardwareAccelerated="false"
+107-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:83:13-48
+108            android:label="@string/app_name"
+108-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:84:13-45
+109            android:launchMode="singleTask"
+109-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:85:13-44
+110            android:resizeableActivity="false"
+110-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:86:13-47
+111            android:screenOrientation="fullUser" >
+111-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:87:13-49
+112            <intent-filter>
+112-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:88:13-93:29
+113                <category android:name="android.intent.category.LAUNCHER" />
+113-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:89:17-77
+113-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:89:27-74
+114                <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
+114-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:90:17-86
+114-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:90:27-83
+115
+116                <action android:name="android.intent.action.MAIN" />
+116-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:92:17-69
+116-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:92:25-66
+117            </intent-filter>
+118
+119            <meta-data
+119-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:95:13-97:40
+120                android:name="unityplayer.UnityActivity"
+120-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:96:17-57
+121                android:value="true" />
+121-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:97:17-37
+122            <meta-data
+122-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:98:13-100:40
+123                android:name="notch_support"
+123-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:99:17-45
+124                android:value="true" />
+124-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:100:17-37
+125        </activity>
+126
+127        <meta-data
+127-->[:unityLibrary:clevertap-android-wrapper.androidlib] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/clevertap-android-wrapper.androidlib/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:8:9-10:49
+128            android:name="CLEVERTAP_ACCOUNT_ID"
+128-->[:unityLibrary:clevertap-android-wrapper.androidlib] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/clevertap-android-wrapper.androidlib/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:9:13-48
+129            android:value="TEST-R78-KW5-K47Z" />
+129-->[:unityLibrary:clevertap-android-wrapper.androidlib] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/clevertap-android-wrapper.androidlib/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:10:13-46
+130        <meta-data
+130-->[:unityLibrary:clevertap-android-wrapper.androidlib] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/clevertap-android-wrapper.androidlib/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:11:9-13:44
+131            android:name="CLEVERTAP_TOKEN"
+131-->[:unityLibrary:clevertap-android-wrapper.androidlib] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/clevertap-android-wrapper.androidlib/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:12:13-43
+132            android:value="TEST-503-ba2" />
+132-->[:unityLibrary:clevertap-android-wrapper.androidlib] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/clevertap-android-wrapper.androidlib/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:13:13-41
+133        <meta-data
+133-->[:unityLibrary:clevertap-android-wrapper.androidlib] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/clevertap-android-wrapper.androidlib/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:14:9-16:35
+134            android:name="CLEVERTAP_REGION"
+134-->[:unityLibrary:clevertap-android-wrapper.androidlib] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/clevertap-android-wrapper.androidlib/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:15:13-44
+135            android:value="us1" />
+135-->[:unityLibrary:clevertap-android-wrapper.androidlib] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/clevertap-android-wrapper.androidlib/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:16:13-32
+136
+137        <receiver
+137-->[com.google.firebase:firebase-messaging:24.1.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/72cfcc3fd944d6b58f96d7074ba2b121/transformed/jetified-firebase-messaging-24.1.1/AndroidManifest.xml:29:9-40:20
+138            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+138-->[com.google.firebase:firebase-messaging:24.1.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/72cfcc3fd944d6b58f96d7074ba2b121/transformed/jetified-firebase-messaging-24.1.1/AndroidManifest.xml:30:13-78
+139            android:exported="true"
+139-->[com.google.firebase:firebase-messaging:24.1.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/72cfcc3fd944d6b58f96d7074ba2b121/transformed/jetified-firebase-messaging-24.1.1/AndroidManifest.xml:31:13-36
+140            android:permission="com.google.android.c2dm.permission.SEND" >
+140-->[com.google.firebase:firebase-messaging:24.1.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/72cfcc3fd944d6b58f96d7074ba2b121/transformed/jetified-firebase-messaging-24.1.1/AndroidManifest.xml:32:13-73
+141            <intent-filter>
+141-->[com.google.firebase:firebase-messaging:24.1.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/72cfcc3fd944d6b58f96d7074ba2b121/transformed/jetified-firebase-messaging-24.1.1/AndroidManifest.xml:33:13-35:29
+142                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+142-->[com.google.firebase:firebase-messaging:24.1.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/72cfcc3fd944d6b58f96d7074ba2b121/transformed/jetified-firebase-messaging-24.1.1/AndroidManifest.xml:34:17-81
+142-->[com.google.firebase:firebase-messaging:24.1.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/72cfcc3fd944d6b58f96d7074ba2b121/transformed/jetified-firebase-messaging-24.1.1/AndroidManifest.xml:34:25-78
+143            </intent-filter>
+144
+145            <meta-data
+145-->[com.google.firebase:firebase-messaging:24.1.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/72cfcc3fd944d6b58f96d7074ba2b121/transformed/jetified-firebase-messaging-24.1.1/AndroidManifest.xml:37:13-39:40
+146                android:name="com.google.android.gms.cloudmessaging.FINISHED_AFTER_HANDLED"
+146-->[com.google.firebase:firebase-messaging:24.1.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/72cfcc3fd944d6b58f96d7074ba2b121/transformed/jetified-firebase-messaging-24.1.1/AndroidManifest.xml:38:17-92
+147                android:value="true" />
+147-->[com.google.firebase:firebase-messaging:24.1.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/72cfcc3fd944d6b58f96d7074ba2b121/transformed/jetified-firebase-messaging-24.1.1/AndroidManifest.xml:39:17-37
+148        </receiver>
+149        <!--
+150             FirebaseMessagingService performs security checks at runtime,
+151             but set to not exported to explicitly avoid allowing another app to call it.
+152        -->
+153        <service
+153-->[com.google.firebase:firebase-messaging:24.1.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/72cfcc3fd944d6b58f96d7074ba2b121/transformed/jetified-firebase-messaging-24.1.1/AndroidManifest.xml:46:9-53:19
+154            android:name="com.google.firebase.messaging.FirebaseMessagingService"
+154-->[com.google.firebase:firebase-messaging:24.1.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/72cfcc3fd944d6b58f96d7074ba2b121/transformed/jetified-firebase-messaging-24.1.1/AndroidManifest.xml:47:13-82
+155            android:directBootAware="true"
+155-->[com.google.firebase:firebase-messaging:24.1.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/72cfcc3fd944d6b58f96d7074ba2b121/transformed/jetified-firebase-messaging-24.1.1/AndroidManifest.xml:48:13-43
+156            android:exported="false" >
+156-->[com.google.firebase:firebase-messaging:24.1.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/72cfcc3fd944d6b58f96d7074ba2b121/transformed/jetified-firebase-messaging-24.1.1/AndroidManifest.xml:49:13-37
+157            <intent-filter android:priority="-500" >
+157-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:48:13-50:29
+158                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+158-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:49:17-78
+158-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:49:25-75
+159            </intent-filter>
+160        </service>
+161        <service
+161-->[com.google.firebase:firebase-messaging:24.1.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/72cfcc3fd944d6b58f96d7074ba2b121/transformed/jetified-firebase-messaging-24.1.1/AndroidManifest.xml:54:9-63:19
+162            android:name="com.google.firebase.components.ComponentDiscoveryService"
+162-->[com.google.firebase:firebase-messaging:24.1.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/72cfcc3fd944d6b58f96d7074ba2b121/transformed/jetified-firebase-messaging-24.1.1/AndroidManifest.xml:55:13-84
+163            android:directBootAware="true"
+163-->[com.google.firebase:firebase-common:21.0.0] /Users/hey_zeus/.gradle/caches/8.12/transforms/0972f88a87c42dfc97c7dbfecb9f58ee/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:32:13-43
+164            android:exported="false" >
+164-->[com.google.firebase:firebase-messaging:24.1.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/72cfcc3fd944d6b58f96d7074ba2b121/transformed/jetified-firebase-messaging-24.1.1/AndroidManifest.xml:56:13-37
+165            <meta-data
+165-->[com.google.firebase:firebase-messaging:24.1.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/72cfcc3fd944d6b58f96d7074ba2b121/transformed/jetified-firebase-messaging-24.1.1/AndroidManifest.xml:57:13-59:85
+166                android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingKtxRegistrar"
+166-->[com.google.firebase:firebase-messaging:24.1.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/72cfcc3fd944d6b58f96d7074ba2b121/transformed/jetified-firebase-messaging-24.1.1/AndroidManifest.xml:58:17-122
+167                android:value="com.google.firebase.components.ComponentRegistrar" />
+167-->[com.google.firebase:firebase-messaging:24.1.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/72cfcc3fd944d6b58f96d7074ba2b121/transformed/jetified-firebase-messaging-24.1.1/AndroidManifest.xml:59:17-82
+168            <meta-data
+168-->[com.google.firebase:firebase-messaging:24.1.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/72cfcc3fd944d6b58f96d7074ba2b121/transformed/jetified-firebase-messaging-24.1.1/AndroidManifest.xml:60:13-62:85
+169                android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar"
+169-->[com.google.firebase:firebase-messaging:24.1.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/72cfcc3fd944d6b58f96d7074ba2b121/transformed/jetified-firebase-messaging-24.1.1/AndroidManifest.xml:61:17-119
+170                android:value="com.google.firebase.components.ComponentRegistrar" />
+170-->[com.google.firebase:firebase-messaging:24.1.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/72cfcc3fd944d6b58f96d7074ba2b121/transformed/jetified-firebase-messaging-24.1.1/AndroidManifest.xml:62:17-82
+171            <meta-data
+171-->[com.google.firebase:firebase-iid:21.1.0] /Users/hey_zeus/.gradle/caches/8.12/transforms/a4e9b6b90f1cca332ae6691b393d284e/transformed/jetified-firebase-iid-21.1.0/AndroidManifest.xml:32:13-34:85
+172                android:name="com.google.firebase.components:com.google.firebase.iid.Registrar"
+172-->[com.google.firebase:firebase-iid:21.1.0] /Users/hey_zeus/.gradle/caches/8.12/transforms/a4e9b6b90f1cca332ae6691b393d284e/transformed/jetified-firebase-iid-21.1.0/AndroidManifest.xml:33:17-96
+173                android:value="com.google.firebase.components.ComponentRegistrar" />
+173-->[com.google.firebase:firebase-iid:21.1.0] /Users/hey_zeus/.gradle/caches/8.12/transforms/a4e9b6b90f1cca332ae6691b393d284e/transformed/jetified-firebase-iid-21.1.0/AndroidManifest.xml:34:17-82
+174            <meta-data
+174-->[com.google.android.gms:play-services-measurement-api:22.4.0] /Users/hey_zeus/.gradle/caches/8.12/transforms/f3a6c446fece81d6c7a49d9cdcd07c48/transformed/jetified-play-services-measurement-api-22.4.0/AndroidManifest.xml:33:13-35:85
+175                android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
+175-->[com.google.android.gms:play-services-measurement-api:22.4.0] /Users/hey_zeus/.gradle/caches/8.12/transforms/f3a6c446fece81d6c7a49d9cdcd07c48/transformed/jetified-play-services-measurement-api-22.4.0/AndroidManifest.xml:34:17-139
+176                android:value="com.google.firebase.components.ComponentRegistrar" />
+176-->[com.google.android.gms:play-services-measurement-api:22.4.0] /Users/hey_zeus/.gradle/caches/8.12/transforms/f3a6c446fece81d6c7a49d9cdcd07c48/transformed/jetified-play-services-measurement-api-22.4.0/AndroidManifest.xml:35:17-82
+177            <meta-data
+177-->[com.google.firebase:firebase-installations:17.2.0] /Users/hey_zeus/.gradle/caches/8.12/transforms/c50ec2bdef69b4267146a1bfb381d925/transformed/jetified-firebase-installations-17.2.0/AndroidManifest.xml:15:13-17:85
+178                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsKtxRegistrar"
+178-->[com.google.firebase:firebase-installations:17.2.0] /Users/hey_zeus/.gradle/caches/8.12/transforms/c50ec2bdef69b4267146a1bfb381d925/transformed/jetified-firebase-installations-17.2.0/AndroidManifest.xml:16:17-130
+179                android:value="com.google.firebase.components.ComponentRegistrar" />
+179-->[com.google.firebase:firebase-installations:17.2.0] /Users/hey_zeus/.gradle/caches/8.12/transforms/c50ec2bdef69b4267146a1bfb381d925/transformed/jetified-firebase-installations-17.2.0/AndroidManifest.xml:17:17-82
+180            <meta-data
+180-->[com.google.firebase:firebase-installations:17.2.0] /Users/hey_zeus/.gradle/caches/8.12/transforms/c50ec2bdef69b4267146a1bfb381d925/transformed/jetified-firebase-installations-17.2.0/AndroidManifest.xml:18:13-20:85
+181                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
+181-->[com.google.firebase:firebase-installations:17.2.0] /Users/hey_zeus/.gradle/caches/8.12/transforms/c50ec2bdef69b4267146a1bfb381d925/transformed/jetified-firebase-installations-17.2.0/AndroidManifest.xml:19:17-127
+182                android:value="com.google.firebase.components.ComponentRegistrar" />
+182-->[com.google.firebase:firebase-installations:17.2.0] /Users/hey_zeus/.gradle/caches/8.12/transforms/c50ec2bdef69b4267146a1bfb381d925/transformed/jetified-firebase-installations-17.2.0/AndroidManifest.xml:20:17-82
+183            <meta-data
+183-->[com.google.firebase:firebase-common-ktx:21.0.0] /Users/hey_zeus/.gradle/caches/8.12/transforms/a75e72e77f079ef04481e60cee2e76ae/transformed/jetified-firebase-common-ktx-21.0.0/AndroidManifest.xml:12:13-14:85
+184                android:name="com.google.firebase.components:com.google.firebase.ktx.FirebaseCommonLegacyRegistrar"
+184-->[com.google.firebase:firebase-common-ktx:21.0.0] /Users/hey_zeus/.gradle/caches/8.12/transforms/a75e72e77f079ef04481e60cee2e76ae/transformed/jetified-firebase-common-ktx-21.0.0/AndroidManifest.xml:13:17-116
+185                android:value="com.google.firebase.components.ComponentRegistrar" />
+185-->[com.google.firebase:firebase-common-ktx:21.0.0] /Users/hey_zeus/.gradle/caches/8.12/transforms/a75e72e77f079ef04481e60cee2e76ae/transformed/jetified-firebase-common-ktx-21.0.0/AndroidManifest.xml:14:17-82
+186            <meta-data
+186-->[com.google.firebase:firebase-common:21.0.0] /Users/hey_zeus/.gradle/caches/8.12/transforms/0972f88a87c42dfc97c7dbfecb9f58ee/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:35:13-37:85
+187                android:name="com.google.firebase.components:com.google.firebase.FirebaseCommonKtxRegistrar"
+187-->[com.google.firebase:firebase-common:21.0.0] /Users/hey_zeus/.gradle/caches/8.12/transforms/0972f88a87c42dfc97c7dbfecb9f58ee/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:36:17-109
+188                android:value="com.google.firebase.components.ComponentRegistrar" />
+188-->[com.google.firebase:firebase-common:21.0.0] /Users/hey_zeus/.gradle/caches/8.12/transforms/0972f88a87c42dfc97c7dbfecb9f58ee/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:37:17-82
+189            <meta-data
+189-->[com.google.firebase:firebase-datatransport:18.2.0] /Users/hey_zeus/.gradle/caches/8.12/transforms/b4ec780367bf5cc215a4d37e87c039b7/transformed/jetified-firebase-datatransport-18.2.0/AndroidManifest.xml:25:13-27:85
+190                android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar"
+190-->[com.google.firebase:firebase-datatransport:18.2.0] /Users/hey_zeus/.gradle/caches/8.12/transforms/b4ec780367bf5cc215a4d37e87c039b7/transformed/jetified-firebase-datatransport-18.2.0/AndroidManifest.xml:26:17-115
+191                android:value="com.google.firebase.components.ComponentRegistrar" />
+191-->[com.google.firebase:firebase-datatransport:18.2.0] /Users/hey_zeus/.gradle/caches/8.12/transforms/b4ec780367bf5cc215a4d37e87c039b7/transformed/jetified-firebase-datatransport-18.2.0/AndroidManifest.xml:27:17-82
+192        </service>
+193
+194        <receiver
+194-->[com.google.android.gms:play-services-measurement:22.4.0] /Users/hey_zeus/.gradle/caches/8.12/transforms/e2d06392611519e875ab59284ec76b41/transformed/jetified-play-services-measurement-22.4.0/AndroidManifest.xml:29:9-33:20
+195            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+195-->[com.google.android.gms:play-services-measurement:22.4.0] /Users/hey_zeus/.gradle/caches/8.12/transforms/e2d06392611519e875ab59284ec76b41/transformed/jetified-play-services-measurement-22.4.0/AndroidManifest.xml:30:13-85
+196            android:enabled="true"
+196-->[com.google.android.gms:play-services-measurement:22.4.0] /Users/hey_zeus/.gradle/caches/8.12/transforms/e2d06392611519e875ab59284ec76b41/transformed/jetified-play-services-measurement-22.4.0/AndroidManifest.xml:31:13-35
+197            android:exported="false" >
+197-->[com.google.android.gms:play-services-measurement:22.4.0] /Users/hey_zeus/.gradle/caches/8.12/transforms/e2d06392611519e875ab59284ec76b41/transformed/jetified-play-services-measurement-22.4.0/AndroidManifest.xml:32:13-37
+198        </receiver>
+199
+200        <service
+200-->[com.google.android.gms:play-services-measurement:22.4.0] /Users/hey_zeus/.gradle/caches/8.12/transforms/e2d06392611519e875ab59284ec76b41/transformed/jetified-play-services-measurement-22.4.0/AndroidManifest.xml:35:9-38:40
+201            android:name="com.google.android.gms.measurement.AppMeasurementService"
+201-->[com.google.android.gms:play-services-measurement:22.4.0] /Users/hey_zeus/.gradle/caches/8.12/transforms/e2d06392611519e875ab59284ec76b41/transformed/jetified-play-services-measurement-22.4.0/AndroidManifest.xml:36:13-84
+202            android:enabled="true"
+202-->[com.google.android.gms:play-services-measurement:22.4.0] /Users/hey_zeus/.gradle/caches/8.12/transforms/e2d06392611519e875ab59284ec76b41/transformed/jetified-play-services-measurement-22.4.0/AndroidManifest.xml:37:13-35
+203            android:exported="false" />
+203-->[com.google.android.gms:play-services-measurement:22.4.0] /Users/hey_zeus/.gradle/caches/8.12/transforms/e2d06392611519e875ab59284ec76b41/transformed/jetified-play-services-measurement-22.4.0/AndroidManifest.xml:38:13-37
+204        <service
+204-->[com.google.android.gms:play-services-measurement:22.4.0] /Users/hey_zeus/.gradle/caches/8.12/transforms/e2d06392611519e875ab59284ec76b41/transformed/jetified-play-services-measurement-22.4.0/AndroidManifest.xml:39:9-43:72
+205            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
+205-->[com.google.android.gms:play-services-measurement:22.4.0] /Users/hey_zeus/.gradle/caches/8.12/transforms/e2d06392611519e875ab59284ec76b41/transformed/jetified-play-services-measurement-22.4.0/AndroidManifest.xml:40:13-87
+206            android:enabled="true"
+206-->[com.google.android.gms:play-services-measurement:22.4.0] /Users/hey_zeus/.gradle/caches/8.12/transforms/e2d06392611519e875ab59284ec76b41/transformed/jetified-play-services-measurement-22.4.0/AndroidManifest.xml:41:13-35
+207            android:exported="false"
+207-->[com.google.android.gms:play-services-measurement:22.4.0] /Users/hey_zeus/.gradle/caches/8.12/transforms/e2d06392611519e875ab59284ec76b41/transformed/jetified-play-services-measurement-22.4.0/AndroidManifest.xml:42:13-37
+208            android:permission="android.permission.BIND_JOB_SERVICE" />
+208-->[com.google.android.gms:play-services-measurement:22.4.0] /Users/hey_zeus/.gradle/caches/8.12/transforms/e2d06392611519e875ab59284ec76b41/transformed/jetified-play-services-measurement-22.4.0/AndroidManifest.xml:43:13-69
+209
+210        <activity
+210-->[com.google.android.gms:play-services-base:18.6.0] /Users/hey_zeus/.gradle/caches/8.12/transforms/496ddf64109cb36cbf91548fedc548a4/transformed/jetified-play-services-base-18.6.0/AndroidManifest.xml:20:9-22:45
+211            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+211-->[com.google.android.gms:play-services-base:18.6.0] /Users/hey_zeus/.gradle/caches/8.12/transforms/496ddf64109cb36cbf91548fedc548a4/transformed/jetified-play-services-base-18.6.0/AndroidManifest.xml:20:19-85
+212            android:exported="false"
+212-->[com.google.android.gms:play-services-base:18.6.0] /Users/hey_zeus/.gradle/caches/8.12/transforms/496ddf64109cb36cbf91548fedc548a4/transformed/jetified-play-services-base-18.6.0/AndroidManifest.xml:22:19-43
+213            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+213-->[com.google.android.gms:play-services-base:18.6.0] /Users/hey_zeus/.gradle/caches/8.12/transforms/496ddf64109cb36cbf91548fedc548a4/transformed/jetified-play-services-base-18.6.0/AndroidManifest.xml:21:19-78
+214
+215        <provider
+215-->[com.google.firebase:firebase-common:21.0.0] /Users/hey_zeus/.gradle/caches/8.12/transforms/0972f88a87c42dfc97c7dbfecb9f58ee/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:23:9-28:39
+216            android:name="com.google.firebase.provider.FirebaseInitProvider"
+216-->[com.google.firebase:firebase-common:21.0.0] /Users/hey_zeus/.gradle/caches/8.12/transforms/0972f88a87c42dfc97c7dbfecb9f58ee/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:24:13-77
+217            android:authorities="com.heyzeusvapps.ctunity.firebaseinitprovider"
+217-->[com.google.firebase:firebase-common:21.0.0] /Users/hey_zeus/.gradle/caches/8.12/transforms/0972f88a87c42dfc97c7dbfecb9f58ee/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:25:13-72
+218            android:directBootAware="true"
+218-->[com.google.firebase:firebase-common:21.0.0] /Users/hey_zeus/.gradle/caches/8.12/transforms/0972f88a87c42dfc97c7dbfecb9f58ee/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:26:13-43
+219            android:exported="false"
+219-->[com.google.firebase:firebase-common:21.0.0] /Users/hey_zeus/.gradle/caches/8.12/transforms/0972f88a87c42dfc97c7dbfecb9f58ee/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:27:13-37
+220            android:initOrder="100" />
+220-->[com.google.firebase:firebase-common:21.0.0] /Users/hey_zeus/.gradle/caches/8.12/transforms/0972f88a87c42dfc97c7dbfecb9f58ee/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:28:13-36
+221
+222        <service
+222-->[com.google.firebase:firebase-messaging-unity:12.9.0] /Users/hey_zeus/.gradle/caches/8.12/transforms/67d1b46218f7f0d0081608af344f7b4c/transformed/jetified-firebase-messaging-unity-12.9.0/AndroidManifest.xml:18:5-23:15
+223            android:name="com.google.firebase.messaging.cpp.ListenerService"
+223-->[com.google.firebase:firebase-messaging-unity:12.9.0] /Users/hey_zeus/.gradle/caches/8.12/transforms/67d1b46218f7f0d0081608af344f7b4c/transformed/jetified-firebase-messaging-unity-12.9.0/AndroidManifest.xml:18:14-78
+224            android:exported="false" >
+224-->[com.google.firebase:firebase-messaging-unity:12.9.0] /Users/hey_zeus/.gradle/caches/8.12/transforms/67d1b46218f7f0d0081608af344f7b4c/transformed/jetified-firebase-messaging-unity-12.9.0/AndroidManifest.xml:19:14-38
+225            <intent-filter>
+225-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:48:13-50:29
+226                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+226-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:49:17-78
+226-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:49:25-75
+227            </intent-filter>
+228        </service>
+229        <service
+229-->[com.google.firebase:firebase-messaging-unity:12.9.0] /Users/hey_zeus/.gradle/caches/8.12/transforms/67d1b46218f7f0d0081608af344f7b4c/transformed/jetified-firebase-messaging-unity-12.9.0/AndroidManifest.xml:25:5-27:15
+230            android:name="com.google.firebase.messaging.cpp.RegistrationIntentService"
+230-->[com.google.firebase:firebase-messaging-unity:12.9.0] /Users/hey_zeus/.gradle/caches/8.12/transforms/67d1b46218f7f0d0081608af344f7b4c/transformed/jetified-firebase-messaging-unity-12.9.0/AndroidManifest.xml:25:14-88
+231            android:exported="false" >
+231-->[com.google.firebase:firebase-messaging-unity:12.9.0] /Users/hey_zeus/.gradle/caches/8.12/transforms/67d1b46218f7f0d0081608af344f7b4c/transformed/jetified-firebase-messaging-unity-12.9.0/AndroidManifest.xml:26:14-38
+232        </service>
+233        <service
+233-->[:firebase-messaging-cpp:] /Users/hey_zeus/.gradle/caches/8.12/transforms/c7120ac53f72849743951d7f65ad508a/transformed/jetified-firebase-messaging-cpp/AndroidManifest.xml:8:9-11:72
+234            android:name="com.google.firebase.messaging.MessageForwardingService"
+234-->[:firebase-messaging-cpp:] /Users/hey_zeus/.gradle/caches/8.12/transforms/c7120ac53f72849743951d7f65ad508a/transformed/jetified-firebase-messaging-cpp/AndroidManifest.xml:9:13-82
+235            android:exported="true"
+235-->[:firebase-messaging-cpp:] /Users/hey_zeus/.gradle/caches/8.12/transforms/c7120ac53f72849743951d7f65ad508a/transformed/jetified-firebase-messaging-cpp/AndroidManifest.xml:10:13-36
+236            android:permission="android.permission.BIND_JOB_SERVICE" />
+236-->[:firebase-messaging-cpp:] /Users/hey_zeus/.gradle/caches/8.12/transforms/c7120ac53f72849743951d7f65ad508a/transformed/jetified-firebase-messaging-cpp/AndroidManifest.xml:11:13-69
+237
+238        <receiver
+238-->[:unityLibrary:mobilenotifications.androidlib] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/mobilenotifications.androidlib/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:10:9-12:40
+239            android:name="com.unity.androidnotifications.UnityNotificationManager"
+239-->[:unityLibrary:mobilenotifications.androidlib] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/mobilenotifications.androidlib/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:11:13-83
+240            android:exported="false" />
+240-->[:unityLibrary:mobilenotifications.androidlib] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/mobilenotifications.androidlib/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:12:13-37
+241
+242        <meta-data
+242-->[:unityLibrary:mobilenotifications.androidlib] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/mobilenotifications.androidlib/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:14:9-16:33
+243            android:name="com.unity.androidnotifications.exact_scheduling"
+243-->[:unityLibrary:mobilenotifications.androidlib] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/mobilenotifications.androidlib/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:15:13-75
+244            android:value="0" />
+244-->[:unityLibrary:mobilenotifications.androidlib] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/mobilenotifications.androidlib/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:16:13-30
+245
+246        <uses-library
+246-->[androidx.privacysandbox.ads:ads-adservices:1.1.0-beta11] /Users/hey_zeus/.gradle/caches/8.12/transforms/f4c2334c147a852cdaead3afbcb1b797/transformed/jetified-ads-adservices-1.1.0-beta11/AndroidManifest.xml:23:9-25:40
+247            android:name="android.ext.adservices"
+247-->[androidx.privacysandbox.ads:ads-adservices:1.1.0-beta11] /Users/hey_zeus/.gradle/caches/8.12/transforms/f4c2334c147a852cdaead3afbcb1b797/transformed/jetified-ads-adservices-1.1.0-beta11/AndroidManifest.xml:24:13-50
+248            android:required="false" />
+248-->[androidx.privacysandbox.ads:ads-adservices:1.1.0-beta11] /Users/hey_zeus/.gradle/caches/8.12/transforms/f4c2334c147a852cdaead3afbcb1b797/transformed/jetified-ads-adservices-1.1.0-beta11/AndroidManifest.xml:25:13-37
+249
+250        <activity
+250-->[com.clevertap.android:clevertap-android-sdk:7.1.2] /Users/hey_zeus/.gradle/caches/8.12/transforms/c903dd7074f7aa6c1e09c6162a59fded/transformed/jetified-clevertap-android-sdk-7.1.2/AndroidManifest.xml:10:9-13:75
+251            android:name="com.clevertap.android.sdk.InAppNotificationActivity"
+251-->[com.clevertap.android:clevertap-android-sdk:7.1.2] /Users/hey_zeus/.gradle/caches/8.12/transforms/c903dd7074f7aa6c1e09c6162a59fded/transformed/jetified-clevertap-android-sdk-7.1.2/AndroidManifest.xml:11:13-79
+252            android:configChanges="keyboardHidden"
+252-->[com.clevertap.android:clevertap-android-sdk:7.1.2] /Users/hey_zeus/.gradle/caches/8.12/transforms/c903dd7074f7aa6c1e09c6162a59fded/transformed/jetified-clevertap-android-sdk-7.1.2/AndroidManifest.xml:12:13-51
+253            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+253-->[com.clevertap.android:clevertap-android-sdk:7.1.2] /Users/hey_zeus/.gradle/caches/8.12/transforms/c903dd7074f7aa6c1e09c6162a59fded/transformed/jetified-clevertap-android-sdk-7.1.2/AndroidManifest.xml:13:13-72
+254        <activity
+254-->[com.clevertap.android:clevertap-android-sdk:7.1.2] /Users/hey_zeus/.gradle/caches/8.12/transforms/c903dd7074f7aa6c1e09c6162a59fded/transformed/jetified-clevertap-android-sdk-7.1.2/AndroidManifest.xml:14:9-17:77
+255            android:name="com.clevertap.android.sdk.inbox.CTInboxActivity"
+255-->[com.clevertap.android:clevertap-android-sdk:7.1.2] /Users/hey_zeus/.gradle/caches/8.12/transforms/c903dd7074f7aa6c1e09c6162a59fded/transformed/jetified-clevertap-android-sdk-7.1.2/AndroidManifest.xml:15:13-75
+256            android:configChanges="keyboardHidden"
+256-->[com.clevertap.android:clevertap-android-sdk:7.1.2] /Users/hey_zeus/.gradle/caches/8.12/transforms/c903dd7074f7aa6c1e09c6162a59fded/transformed/jetified-clevertap-android-sdk-7.1.2/AndroidManifest.xml:16:13-51
+257            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar" />
+257-->[com.clevertap.android:clevertap-android-sdk:7.1.2] /Users/hey_zeus/.gradle/caches/8.12/transforms/c903dd7074f7aa6c1e09c6162a59fded/transformed/jetified-clevertap-android-sdk-7.1.2/AndroidManifest.xml:17:13-74
+258
+259        <receiver
+259-->[com.clevertap.android:clevertap-android-sdk:7.1.2] /Users/hey_zeus/.gradle/caches/8.12/transforms/c903dd7074f7aa6c1e09c6162a59fded/transformed/jetified-clevertap-android-sdk-7.1.2/AndroidManifest.xml:19:9-22:40
+260            android:name="com.clevertap.android.sdk.pushnotification.CTPushNotificationReceiver"
+260-->[com.clevertap.android:clevertap-android-sdk:7.1.2] /Users/hey_zeus/.gradle/caches/8.12/transforms/c903dd7074f7aa6c1e09c6162a59fded/transformed/jetified-clevertap-android-sdk-7.1.2/AndroidManifest.xml:20:13-97
+261            android:enabled="true"
+261-->[com.clevertap.android:clevertap-android-sdk:7.1.2] /Users/hey_zeus/.gradle/caches/8.12/transforms/c903dd7074f7aa6c1e09c6162a59fded/transformed/jetified-clevertap-android-sdk-7.1.2/AndroidManifest.xml:21:13-35
+262            android:exported="false" />
+262-->[com.clevertap.android:clevertap-android-sdk:7.1.2] /Users/hey_zeus/.gradle/caches/8.12/transforms/c903dd7074f7aa6c1e09c6162a59fded/transformed/jetified-clevertap-android-sdk-7.1.2/AndroidManifest.xml:22:13-37
+263        <receiver
+263-->[com.clevertap.android:clevertap-android-sdk:7.1.2] /Users/hey_zeus/.gradle/caches/8.12/transforms/c903dd7074f7aa6c1e09c6162a59fded/transformed/jetified-clevertap-android-sdk-7.1.2/AndroidManifest.xml:23:9-30:20
+264            android:name="com.clevertap.android.sdk.pushnotification.fcm.CTFirebaseMessagingReceiver"
+264-->[com.clevertap.android:clevertap-android-sdk:7.1.2] /Users/hey_zeus/.gradle/caches/8.12/transforms/c903dd7074f7aa6c1e09c6162a59fded/transformed/jetified-clevertap-android-sdk-7.1.2/AndroidManifest.xml:24:13-102
+265            android:exported="true"
+265-->[com.clevertap.android:clevertap-android-sdk:7.1.2] /Users/hey_zeus/.gradle/caches/8.12/transforms/c903dd7074f7aa6c1e09c6162a59fded/transformed/jetified-clevertap-android-sdk-7.1.2/AndroidManifest.xml:25:13-36
+266            android:permission="com.google.android.c2dm.permission.SEND" >
+266-->[com.clevertap.android:clevertap-android-sdk:7.1.2] /Users/hey_zeus/.gradle/caches/8.12/transforms/c903dd7074f7aa6c1e09c6162a59fded/transformed/jetified-clevertap-android-sdk-7.1.2/AndroidManifest.xml:26:13-73
+267            <intent-filter android:priority="-1" >
+267-->[com.google.firebase:firebase-messaging:24.1.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/72cfcc3fd944d6b58f96d7074ba2b121/transformed/jetified-firebase-messaging-24.1.1/AndroidManifest.xml:33:13-35:29
+268                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+268-->[com.google.firebase:firebase-messaging:24.1.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/72cfcc3fd944d6b58f96d7074ba2b121/transformed/jetified-firebase-messaging-24.1.1/AndroidManifest.xml:34:17-81
+268-->[com.google.firebase:firebase-messaging:24.1.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/72cfcc3fd944d6b58f96d7074ba2b121/transformed/jetified-firebase-messaging-24.1.1/AndroidManifest.xml:34:25-78
+269            </intent-filter>
+270        </receiver>
+271
+272        <meta-data
+272-->[com.google.android.gms:play-services-basement:18.6.0] /Users/hey_zeus/.gradle/caches/8.12/transforms/f4df79515cac3b42f51848a426d646ba/transformed/jetified-play-services-basement-18.6.0/AndroidManifest.xml:21:9-23:69
+273            android:name="com.google.android.gms.version"
+273-->[com.google.android.gms:play-services-basement:18.6.0] /Users/hey_zeus/.gradle/caches/8.12/transforms/f4df79515cac3b42f51848a426d646ba/transformed/jetified-play-services-basement-18.6.0/AndroidManifest.xml:22:13-58
+274            android:value="@integer/google_play_services_version" />
+274-->[com.google.android.gms:play-services-basement:18.6.0] /Users/hey_zeus/.gradle/caches/8.12/transforms/f4df79515cac3b42f51848a426d646ba/transformed/jetified-play-services-basement-18.6.0/AndroidManifest.xml:23:13-66
+275
+276        <provider
+276-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:31:9-39:20
+277            android:name="androidx.startup.InitializationProvider"
+277-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:32:13-67
+278            android:authorities="com.heyzeusvapps.ctunity.androidx-startup"
+278-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:33:13-68
+279            android:exported="false" >
+279-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:34:13-37
+280            <meta-data
+280-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:36:13-38:52
+281                android:name="androidx.work.WorkManagerInitializer"
+281-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:37:17-68
+282                android:value="androidx.startup" />
+282-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:38:17-49
+283            <meta-data
+283-->[androidx.emoji2:emoji2:1.2.0-rc01] /Users/hey_zeus/.gradle/caches/8.12/transforms/356b92f4d73d925999a5562717c49b11/transformed/jetified-emoji2-1.2.0-rc01/AndroidManifest.xml:29:13-31:52
+284                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+284-->[androidx.emoji2:emoji2:1.2.0-rc01] /Users/hey_zeus/.gradle/caches/8.12/transforms/356b92f4d73d925999a5562717c49b11/transformed/jetified-emoji2-1.2.0-rc01/AndroidManifest.xml:30:17-75
+285                android:value="androidx.startup" />
+285-->[androidx.emoji2:emoji2:1.2.0-rc01] /Users/hey_zeus/.gradle/caches/8.12/transforms/356b92f4d73d925999a5562717c49b11/transformed/jetified-emoji2-1.2.0-rc01/AndroidManifest.xml:31:17-49
+286            <meta-data
+286-->[androidx.lifecycle:lifecycle-process:2.4.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/8071ebbd9825c349788e01e00e130481/transformed/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:31:13-33:52
+287                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+287-->[androidx.lifecycle:lifecycle-process:2.4.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/8071ebbd9825c349788e01e00e130481/transformed/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:32:17-78
+288                android:value="androidx.startup" />
+288-->[androidx.lifecycle:lifecycle-process:2.4.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/8071ebbd9825c349788e01e00e130481/transformed/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:33:17-49
+289        </provider>
+290
+291        <service
+291-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:41:9-46:35
+292            android:name="androidx.work.impl.background.systemalarm.SystemAlarmService"
+292-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:42:13-88
+293            android:directBootAware="false"
+293-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:43:13-44
+294            android:enabled="@bool/enable_system_alarm_service_default"
+294-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:44:13-72
+295            android:exported="false" />
+295-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:45:13-37
+296        <service
+296-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:47:9-53:35
+297            android:name="androidx.work.impl.background.systemjob.SystemJobService"
+297-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:48:13-84
+298            android:directBootAware="false"
+298-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:49:13-44
+299            android:enabled="@bool/enable_system_job_service_default"
+299-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:50:13-70
+300            android:exported="true"
+300-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:51:13-36
+301            android:permission="android.permission.BIND_JOB_SERVICE" />
+301-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:52:13-69
+302        <service
+302-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:54:9-59:35
+303            android:name="androidx.work.impl.foreground.SystemForegroundService"
+303-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:55:13-81
+304            android:directBootAware="false"
+304-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:56:13-44
+305            android:enabled="@bool/enable_system_foreground_service_default"
+305-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:57:13-77
+306            android:exported="false" />
+306-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:58:13-37
+307
+308        <receiver
+308-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:61:9-66:35
+309            android:name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver"
+309-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:62:13-88
+310            android:directBootAware="false"
+310-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:63:13-44
+311            android:enabled="true"
+311-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:64:13-35
+312            android:exported="false" />
+312-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:65:13-37
+313        <receiver
+313-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:67:9-77:20
+314            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy"
+314-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:68:13-106
+315            android:directBootAware="false"
+315-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:69:13-44
+316            android:enabled="false"
+316-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:70:13-36
+317            android:exported="false" >
+317-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:71:13-37
+318            <intent-filter>
+318-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:73:13-76:29
+319                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+319-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:74:17-87
+319-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:74:25-84
+320                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+320-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:75:17-90
+320-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:75:25-87
+321            </intent-filter>
+322        </receiver>
+323        <receiver
+323-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:78:9-88:20
+324            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy"
+324-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:79:13-104
+325            android:directBootAware="false"
+325-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:80:13-44
+326            android:enabled="false"
+326-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:81:13-36
+327            android:exported="false" >
+327-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:82:13-37
+328            <intent-filter>
+328-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:84:13-87:29
+329                <action android:name="android.intent.action.BATTERY_OKAY" />
+329-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:85:17-77
+329-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:85:25-74
+330                <action android:name="android.intent.action.BATTERY_LOW" />
+330-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:86:17-76
+330-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:86:25-73
+331            </intent-filter>
+332        </receiver>
+333        <receiver
+333-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:89:9-99:20
+334            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy"
+334-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:90:13-104
+335            android:directBootAware="false"
+335-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:91:13-44
+336            android:enabled="false"
+336-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:92:13-36
+337            android:exported="false" >
+337-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:93:13-37
+338            <intent-filter>
+338-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:95:13-98:29
+339                <action android:name="android.intent.action.DEVICE_STORAGE_LOW" />
+339-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:96:17-83
+339-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:96:25-80
+340                <action android:name="android.intent.action.DEVICE_STORAGE_OK" />
+340-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:97:17-82
+340-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:97:25-79
+341            </intent-filter>
+342        </receiver>
+343        <receiver
+343-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:100:9-109:20
+344            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy"
+344-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:101:13-103
+345            android:directBootAware="false"
+345-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:102:13-44
+346            android:enabled="false"
+346-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:103:13-36
+347            android:exported="false" >
+347-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:104:13-37
+348            <intent-filter>
+348-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:106:13-108:29
+349                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+349-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:107:17-79
+349-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:107:25-76
+350            </intent-filter>
+351        </receiver>
+352        <receiver
+352-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:110:9-121:20
+353            android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver"
+353-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:111:13-88
+354            android:directBootAware="false"
+354-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:112:13-44
+355            android:enabled="false"
+355-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:113:13-36
+356            android:exported="false" >
+356-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:114:13-37
+357            <intent-filter>
+357-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:116:13-120:29
+358                <action android:name="android.intent.action.BOOT_COMPLETED" />
+358-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:117:17-79
+358-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:117:25-76
+359                <action android:name="android.intent.action.TIME_SET" />
+359-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:118:17-73
+359-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:118:25-70
+360                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+360-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:119:17-81
+360-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:119:25-78
+361            </intent-filter>
+362        </receiver>
+363        <receiver
+363-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:122:9-131:20
+364            android:name="androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver"
+364-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:123:13-99
+365            android:directBootAware="false"
+365-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:124:13-44
+366            android:enabled="@bool/enable_system_alarm_service_default"
+366-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:125:13-72
+367            android:exported="false" >
+367-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:126:13-37
+368            <intent-filter>
+368-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:128:13-130:29
+369                <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies" />
+369-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:129:17-98
+369-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:129:25-95
+370            </intent-filter>
+371        </receiver>
+372        <receiver
+372-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:132:9-142:20
+373            android:name="androidx.work.impl.diagnostics.DiagnosticsReceiver"
+373-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:133:13-78
+374            android:directBootAware="false"
+374-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:134:13-44
+375            android:enabled="true"
+375-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:135:13-35
+376            android:exported="true"
+376-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:136:13-36
+377            android:permission="android.permission.DUMP" >
+377-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:137:13-57
+378            <intent-filter>
+378-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:139:13-141:29
+379                <action android:name="androidx.work.diagnostics.REQUEST_DIAGNOSTICS" />
+379-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:140:17-88
+379-->[androidx.work:work-runtime:2.7.1] /Users/hey_zeus/.gradle/caches/8.12/transforms/9daca535921651e9c0629c39950587d0/transformed/work-runtime-2.7.1/AndroidManifest.xml:140:25-85
+380            </intent-filter>
+381        </receiver>
+382
+383        <service
+383-->[com.google.android.datatransport:transport-backend-cct:3.1.9] /Users/hey_zeus/.gradle/caches/8.12/transforms/c3e7d23d2c2a16256cc8e216de807f81/transformed/jetified-transport-backend-cct-3.1.9/AndroidManifest.xml:28:9-34:19
+384            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
+384-->[com.google.android.datatransport:transport-backend-cct:3.1.9] /Users/hey_zeus/.gradle/caches/8.12/transforms/c3e7d23d2c2a16256cc8e216de807f81/transformed/jetified-transport-backend-cct-3.1.9/AndroidManifest.xml:29:13-103
+385            android:exported="false" >
+385-->[com.google.android.datatransport:transport-backend-cct:3.1.9] /Users/hey_zeus/.gradle/caches/8.12/transforms/c3e7d23d2c2a16256cc8e216de807f81/transformed/jetified-transport-backend-cct-3.1.9/AndroidManifest.xml:30:13-37
+386            <meta-data
+386-->[com.google.android.datatransport:transport-backend-cct:3.1.9] /Users/hey_zeus/.gradle/caches/8.12/transforms/c3e7d23d2c2a16256cc8e216de807f81/transformed/jetified-transport-backend-cct-3.1.9/AndroidManifest.xml:31:13-33:39
+387                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
+387-->[com.google.android.datatransport:transport-backend-cct:3.1.9] /Users/hey_zeus/.gradle/caches/8.12/transforms/c3e7d23d2c2a16256cc8e216de807f81/transformed/jetified-transport-backend-cct-3.1.9/AndroidManifest.xml:32:17-94
+388                android:value="cct" />
+388-->[com.google.android.datatransport:transport-backend-cct:3.1.9] /Users/hey_zeus/.gradle/caches/8.12/transforms/c3e7d23d2c2a16256cc8e216de807f81/transformed/jetified-transport-backend-cct-3.1.9/AndroidManifest.xml:33:17-36
+389        </service>
+390        <service
+390-->[com.google.android.datatransport:transport-runtime:3.1.9] /Users/hey_zeus/.gradle/caches/8.12/transforms/1184f1af6bbcc1c8dad98f46d79ef431/transformed/jetified-transport-runtime-3.1.9/AndroidManifest.xml:26:9-30:19
+391            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
+391-->[com.google.android.datatransport:transport-runtime:3.1.9] /Users/hey_zeus/.gradle/caches/8.12/transforms/1184f1af6bbcc1c8dad98f46d79ef431/transformed/jetified-transport-runtime-3.1.9/AndroidManifest.xml:27:13-117
+392            android:exported="false"
+392-->[com.google.android.datatransport:transport-runtime:3.1.9] /Users/hey_zeus/.gradle/caches/8.12/transforms/1184f1af6bbcc1c8dad98f46d79ef431/transformed/jetified-transport-runtime-3.1.9/AndroidManifest.xml:28:13-37
+393            android:permission="android.permission.BIND_JOB_SERVICE" >
+393-->[com.google.android.datatransport:transport-runtime:3.1.9] /Users/hey_zeus/.gradle/caches/8.12/transforms/1184f1af6bbcc1c8dad98f46d79ef431/transformed/jetified-transport-runtime-3.1.9/AndroidManifest.xml:29:13-69
+394        </service>
+395
+396        <receiver
+396-->[com.google.android.datatransport:transport-runtime:3.1.9] /Users/hey_zeus/.gradle/caches/8.12/transforms/1184f1af6bbcc1c8dad98f46d79ef431/transformed/jetified-transport-runtime-3.1.9/AndroidManifest.xml:32:9-34:40
+397            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
+397-->[com.google.android.datatransport:transport-runtime:3.1.9] /Users/hey_zeus/.gradle/caches/8.12/transforms/1184f1af6bbcc1c8dad98f46d79ef431/transformed/jetified-transport-runtime-3.1.9/AndroidManifest.xml:33:13-132
+398            android:exported="false" />
+398-->[com.google.android.datatransport:transport-runtime:3.1.9] /Users/hey_zeus/.gradle/caches/8.12/transforms/1184f1af6bbcc1c8dad98f46d79ef431/transformed/jetified-transport-runtime-3.1.9/AndroidManifest.xml:34:13-37
+399
+400        <service
+400-->[androidx.room:room-runtime:2.2.5] /Users/hey_zeus/.gradle/caches/8.12/transforms/868f7283f7ae495752ed8915bcf397d9/transformed/room-runtime-2.2.5/AndroidManifest.xml:25:9-28:40
+401            android:name="androidx.room.MultiInstanceInvalidationService"
+401-->[androidx.room:room-runtime:2.2.5] /Users/hey_zeus/.gradle/caches/8.12/transforms/868f7283f7ae495752ed8915bcf397d9/transformed/room-runtime-2.2.5/AndroidManifest.xml:26:13-74
+402            android:directBootAware="true"
+402-->[androidx.room:room-runtime:2.2.5] /Users/hey_zeus/.gradle/caches/8.12/transforms/868f7283f7ae495752ed8915bcf397d9/transformed/room-runtime-2.2.5/AndroidManifest.xml:27:13-43
+403            android:exported="false" />
+403-->[androidx.room:room-runtime:2.2.5] /Users/hey_zeus/.gradle/caches/8.12/transforms/868f7283f7ae495752ed8915bcf397d9/transformed/room-runtime-2.2.5/AndroidManifest.xml:28:13-37
+404    </application>
+405
+406</manifest>

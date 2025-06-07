@@ -1,0 +1,33 @@
+pluginManagement {
+    repositories {
+        
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+}
+
+include ':launcher', ':unityLibrary'
+include 'unityLibrary:mobilenotifications.androidlib'
+include 'unityLibrary:FirebaseApp.androidlib'
+include 'unityLibrary:clevertap-android-wrapper.androidlib'
+
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
+    repositories {
+        
+        google()
+        mavenCentral()
+// Android Resolver Repos Start
+        def unityProjectPath = $/file:////Users/hey_zeus/Repos/CleverTapSamples/unity/$.replace("\\", "/")
+        maven {
+            url (unityProjectPath + "/Assets/GeneratedLocalRepo/Firebase/m2repository") // Assets/Firebase/Editor/AppDependencies.xml:22, Assets/Firebase/Editor/MessagingDependencies.xml:24
+        }
+        mavenLocal()
+// Android Resolver Repos End
+        flatDir {
+            dirs "${project(':unityLibrary').projectDir}/libs"
+        }
+    }
+}
