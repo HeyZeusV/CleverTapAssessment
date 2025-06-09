@@ -142,17 +142,17 @@ ADDED from /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/src
 activity#com.clevertap.unity.CleverTapOverrideActivity
 ADDED from /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/src/main/AndroidManifest.xml:30:5-38:16
 	android:screenOrientation
-		ADDED from /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/src/main/AndroidManifest.xml:30:323-359
+		ADDED from /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/src/main/AndroidManifest.xml:30:323-360
 	android:label
 		ADDED from /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/src/main/AndroidManifest.xml:30:258-290
 	android:launchMode
 		ADDED from /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/src/main/AndroidManifest.xml:30:291-322
 	android:hardwareAccelerated
-		ADDED from /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/src/main/AndroidManifest.xml:30:395-430
+		ADDED from /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/src/main/AndroidManifest.xml:30:396-431
 	android:exported
-		ADDED from /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/src/main/AndroidManifest.xml:30:431-454
+		ADDED from /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/src/main/AndroidManifest.xml:30:432-455
 	android:resizeableActivity
-		ADDED from /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/src/main/AndroidManifest.xml:30:360-394
+		ADDED from /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/src/main/AndroidManifest.xml:30:361-395
 	android:configChanges
 		ADDED from /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/src/main/AndroidManifest.xml:30:76-257
 	android:name

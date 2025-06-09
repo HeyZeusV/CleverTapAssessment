@@ -27,7 +27,7 @@
     <meta-data android:name="unity.render-outside-safearea" android:value="True" />
     <meta-data android:name="notch.config" android:value="portrait|landscape" />
     <meta-data android:name="unity.auto-report-fully-drawn" android:value="true" />
-    <activity android:name="com.clevertap.unity.CleverTapOverrideActivity" android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|uiMode|screenSize|smallestScreenSize|fontScale|layoutDirection|density" android:label="@string/app_name" android:launchMode="singleTask" android:screenOrientation="fullUser" android:resizeableActivity="false" android:hardwareAccelerated="false" android:exported="true">
+    <activity android:name="com.clevertap.unity.CleverTapOverrideActivity" android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|uiMode|screenSize|smallestScreenSize|fontScale|layoutDirection|density" android:label="@string/app_name" android:launchMode="singleTask" android:screenOrientation="landscape" android:resizeableActivity="false" android:hardwareAccelerated="false" android:exported="true">
       <intent-filter>
         <category android:name="android.intent.category.LAUNCHER" />
         <category android:name="android.intent.category.LEANBACK_LAUNCHER" />

@@ -22,7 +22,7 @@
 14-->/Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/clevertap-android-wrapper.androidlib/src/main/AndroidManifest.xml:6:5-70
 15            android:name="CLEVERTAP_REGION"
 15-->/Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/clevertap-android-wrapper.androidlib/src/main/AndroidManifest.xml:6:16-47
-16            android:value="us1" />
+16            android:value="eu1" />
 16-->/Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/clevertap-android-wrapper.androidlib/src/main/AndroidManifest.xml:6:48-67
 17    </application>
 18

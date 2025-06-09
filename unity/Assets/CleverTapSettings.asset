@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CleverTapAccountId: TEST-R78-KW5-K47Z
   CleverTapAccountToken: TEST-503-ba2
-  CleverTapAccountRegion: us1
+  CleverTapAccountRegion: eu1
   CleverTapProxyDomain: 
   CleverTapSpikyProxyDomain: 
   CleverTapDisableIDFV: 0

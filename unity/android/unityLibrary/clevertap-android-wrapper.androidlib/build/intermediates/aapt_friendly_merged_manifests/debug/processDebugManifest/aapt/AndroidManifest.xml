@@ -13,7 +13,7 @@
             android:value="TEST-503-ba2" />
         <meta-data
             android:name="CLEVERTAP_REGION"
-            android:value="us1" />
+            android:value="eu1" />
     </application>
 
 </manifest>

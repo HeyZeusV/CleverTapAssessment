@@ -3,6 +3,6 @@
   <application>
     <meta-data android:name="CLEVERTAP_ACCOUNT_ID" android:value="TEST-R78-KW5-K47Z" />
     <meta-data android:name="CLEVERTAP_TOKEN" android:value="TEST-503-ba2" />
-    <meta-data android:name="CLEVERTAP_REGION" android:value="us1" />
+    <meta-data android:name="CLEVERTAP_REGION" android:value="eu1" />
   </application>
 </manifest>

@@ -150,17 +150,17 @@
 81            android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|uiMode|screenSize|smallestScreenSize|fontScale|layoutDirection|density"
 81-->/Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/src/main/AndroidManifest.xml:30:76-257
 82            android:exported="true"
-82-->/Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/src/main/AndroidManifest.xml:30:431-454
+82-->/Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/src/main/AndroidManifest.xml:30:432-455
 83            android:hardwareAccelerated="false"
-83-->/Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/src/main/AndroidManifest.xml:30:395-430
+83-->/Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/src/main/AndroidManifest.xml:30:396-431
 84            android:label="@string/app_name"
 84-->/Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/src/main/AndroidManifest.xml:30:258-290
 85            android:launchMode="singleTask"
 85-->/Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/src/main/AndroidManifest.xml:30:291-322
 86            android:resizeableActivity="false"
-86-->/Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/src/main/AndroidManifest.xml:30:360-394
-87            android:screenOrientation="fullUser" >
-87-->/Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/src/main/AndroidManifest.xml:30:323-359
+86-->/Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/src/main/AndroidManifest.xml:30:361-395
+87            android:screenOrientation="landscape" >
+87-->/Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/src/main/AndroidManifest.xml:30:323-360
 88            <intent-filter>
 88-->/Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/src/main/AndroidManifest.xml:31:7-35:23
 89                <category android:name="android.intent.category.LAUNCHER" />

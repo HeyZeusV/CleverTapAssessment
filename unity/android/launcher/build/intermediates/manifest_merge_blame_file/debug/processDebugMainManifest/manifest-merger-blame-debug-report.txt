@@ -207,8 +207,8 @@
 109-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:85:13-44
 110            android:resizeableActivity="false"
 110-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:86:13-47
-111            android:screenOrientation="fullUser" >
-111-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:87:13-49
+111            android:screenOrientation="landscape" >
+111-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:87:13-50
 112            <intent-filter>
 112-->[:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:88:13-93:29
 113                <category android:name="android.intent.category.LAUNCHER" />
@@ -253,7 +253,7 @@
 133-->[:unityLibrary:clevertap-android-wrapper.androidlib] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/clevertap-android-wrapper.androidlib/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:14:9-16:35
 134            android:name="CLEVERTAP_REGION"
 134-->[:unityLibrary:clevertap-android-wrapper.androidlib] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/clevertap-android-wrapper.androidlib/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:15:13-44
-135            android:value="us1" />
+135            android:value="eu1" />
 135-->[:unityLibrary:clevertap-android-wrapper.androidlib] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/clevertap-android-wrapper.androidlib/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:16:13-32
 136
 137        <receiver

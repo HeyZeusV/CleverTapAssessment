@@ -3,6 +3,7 @@ manifest
 ADDED from /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/mobilenotifications.androidlib/src/main/AndroidManifest.xml:1:1-7:12
 INJECTED from /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/mobilenotifications.androidlib/src/main/AndroidManifest.xml:1:1-7:12
 	package
+		ADDED from /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/mobilenotifications.androidlib/src/main/AndroidManifest.xml:1:70-110
 		INJECTED from /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/mobilenotifications.androidlib/src/main/AndroidManifest.xml
 	xmlns:android
 		ADDED from /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/mobilenotifications.androidlib/src/main/AndroidManifest.xml:1:11-69

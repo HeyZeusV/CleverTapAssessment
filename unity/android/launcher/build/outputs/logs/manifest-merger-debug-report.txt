@@ -531,7 +531,7 @@ ADDED from [:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/
 activity#com.clevertap.unity.CleverTapOverrideActivity
 ADDED from [:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:79:9-101:20
 	android:screenOrientation
-		ADDED from [:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:87:13-49
+		ADDED from [:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:87:13-50
 	android:label
 		ADDED from [:unityLibrary] /Users/hey_zeus/Repos/CleverTapSamples/unity/android/unityLibrary/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:84:13-45
 	android:launchMode
