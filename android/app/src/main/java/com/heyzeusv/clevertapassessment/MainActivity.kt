@@ -111,6 +111,7 @@ fun CleverTapAssessmentApp(
 	LaunchedEffect(navigateTo) {
 		if (navigateTo != null) {
 			navController.navigate(navigateTo!!)
+			mainVM.updateNavigateTo(null)
 		}
 	}
 	LaunchedEffect(Unit) { mainVM.askPushNotificationPermission() }

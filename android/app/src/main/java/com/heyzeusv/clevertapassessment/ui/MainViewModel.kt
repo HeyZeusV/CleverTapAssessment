@@ -10,6 +10,7 @@ import com.heyzeusv.clevertapassessment.util.Screen
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.update
 
 
 class MainViewModel(private val cleverTapAPI: CleverTapAPI) : ViewModel() {
@@ -17,6 +18,7 @@ class MainViewModel(private val cleverTapAPI: CleverTapAPI) : ViewModel() {
 	// used to determine which screen to navigate to
 	private val _navigateTo = MutableStateFlow<Screen?>(null)
 	val navigateTo: StateFlow<Screen?> get() = _navigateTo.asStateFlow()
+	fun updateNavigateTo(newValue: Screen?) { _navigateTo.update { newValue } }
 
 	fun setUpCleverTap(
 		inAppListener: InAppNotificationButtonListener,
@@ -44,9 +46,6 @@ class MainViewModel(private val cleverTapAPI: CleverTapAPI) : ViewModel() {
 		cleverTapAPI.pushNotificationClickedEvent(extras)
 
 		extras?.let {
-			it.getString("wzrk_c2a")?.let { value ->
-				handleCallToAction(value)
-			}
 			val c2a = it.getString("wzrk_c2a")
 			if (c2a.isNotNullAndBlank()) {
 				handleCallToAction(c2a)
@@ -72,7 +71,7 @@ class MainViewModel(private val cleverTapAPI: CleverTapAPI) : ViewModel() {
 	/**
 	 * 	Manually handle Deep Links due to Android 12
 	 */
-	fun handleDeepLink(value: String) {
+	private fun handleDeepLink(value: String) {
 		when {
 			value.contains("red") -> _navigateTo.value = Screen.RedPill
 			value.contains("blue") -> _navigateTo.value = Screen.BluePill
