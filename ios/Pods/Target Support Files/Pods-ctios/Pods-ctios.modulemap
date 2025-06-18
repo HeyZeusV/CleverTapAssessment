@@ -1,0 +1,6 @@
+framework module Pods_ctios {
+  umbrella header "Pods-ctios-umbrella.h"
+
+  export *
+  module * { export * }
+}

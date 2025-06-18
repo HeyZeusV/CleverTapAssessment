@@ -99,7 +99,7 @@ public class LevelManager : MonoBehaviour
 
     void CleverTapInAppNotificationDismissedCallback(string message)
     {
-        Debug.Log("unity received inapp notification dismissed: " + (!String.IsNullOrEmpty(message) ? message : "NULL"));
+        Debug.Log("unity received inapp notification dismissed: " + (!string.IsNullOrEmpty(message) ? message : "NULL"));
     }
 
 
