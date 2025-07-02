@@ -12,9 +12,6 @@ import Combine
 private var ct = CleverTap.sharedInstance()
 
 struct FeaturesView: View {
-    @State private var identity: String = ""
-    @State private var accountId: String = ct?.profileGetID() ?? "Unknown"
-
     @State private var productId: String = "1"
     @State private var productName: String = "CleverTap"
     @State private var emailId: String = "jesus"
@@ -22,20 +19,8 @@ struct FeaturesView: View {
     var body: some View {
         ScrollView {
             VStack {
-                Text("Current account id:\n\(accountId)")
-                    .multilineTextAlignment(.center)
-                TextField("Identity", text: $identity)
-                    .disableAutocorrection(true)
-                    .textFieldStyle(.roundedBorder)
-                    .textInputAutocapitalization(.never)
-                HStack {
-                    CTButton(text: "Sign Up", onClick: {
-                        await createAccountWith(identity: identity)
-                    })
-                    CTButton(text: "Log In", onClick: {
-                        await loginToAccountWith(identity: identity)
-                    })
-                }.fixedSize(horizontal: false, vertical: true)
+                CreateLoginForm()
+
                 CTButton(text: "Update MyStuff") {
                     updateMyStuff()
                 }
@@ -125,42 +110,6 @@ struct FeaturesView: View {
 }
 
 private extension FeaturesView {
-    // Creates new account with given identity
-    func createAccountWith(identity: String) async {
-        let profile = [
-            "Name": identity,
-            "Email": "\(identity)@gmail.com",
-            "Identity": identity
-        ]
-        
-        // used to check if user has changed by difference in CleverTap ids
-        let previousAccountId = accountId
-        ct?.onUserLogin(profile)
-        // Logging in is not instant, so add delay of 1 second between checks
-        while(previousAccountId == ct?.profileGetID()) {
-            accountId = "Loading"
-            try? await Task.sleep(nanoseconds: 1_000_000_000)
-        }
-        accountId = ct?.profileGetID() ?? "Unknown"
-    }
-    
-    // Login to account with given identity
-    func loginToAccountWith(identity: String) async {
-        let profile = [
-            "Identity": identity
-        ]
-        
-        // used to check if user has changed by difference in CleverTap ids
-        let previousAccountId = accountId
-        ct?.onUserLogin(profile)
-        // Logging in is not instant, so add delay of 1 second between checks
-        while(previousAccountId == ct?.profileGetID()) {
-            accountId = "Loading"
-            try? await Task.sleep(nanoseconds: 1_000_000_000)
-        }
-        accountId = ct?.profileGetID() ?? "Unknown"
-    }
-    
     // Pushes random strings to currently logged in user as "MyStuff" user property
     // Pushes "Update MyStuff" event
     func updateMyStuff() {

@@ -7,7 +7,6 @@
 
 import SwiftUI
 import CleverTapSDK
-import Combine
 
 enum Destinations: String {
     case features = "features"
@@ -23,6 +22,14 @@ struct ContentView: View {
             VStack {
                 NavigationLink("Features") {
                     FeaturesView()
+                }
+                .foregroundColor(.white)
+                .padding(EdgeInsets(top: 12, leading: 16, bottom: 12, trailing: 16))
+                .frame(maxWidth: .infinity)
+                .background(.purple)
+                .clipShape(Capsule())
+                NavigationLink("Event Form") {
+                    EventFormView()
                 }
                 .foregroundColor(.white)
                 .padding(EdgeInsets(top: 12, leading: 16, bottom: 12, trailing: 16))
